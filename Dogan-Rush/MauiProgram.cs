@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Dogan_Rush.Models
+namespace Dogan_Rush
 {
     public static class MauiProgram
     {

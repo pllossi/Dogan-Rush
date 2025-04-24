@@ -71,7 +71,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public Person Owner
+        public PersonData Owner
         {
             get => default;
             set
@@ -80,6 +80,14 @@ namespace Dogan_Rush.Models
         }
 
         public Countries Countries
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Countries Countries1
         {
             get => default;
             set

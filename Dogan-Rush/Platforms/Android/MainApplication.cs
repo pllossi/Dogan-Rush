@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Runtime;
-using Dogan_Rush.Models;
 
 namespace Dogan_Rush
 {

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Dogan_Rush.Models
 {
-    internal class PersonData
+    public class Person
     {
-        public int MinAge
+        public string Name
         {
             get => default;
             set
@@ -16,7 +15,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public int MaxAge
+        public string Surname
         {
             get => default;
             set
@@ -24,7 +23,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public int IsMale
+        public int Age
         {
             get => default;
             set
@@ -32,7 +31,31 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public Generator Generator
+        public DateOnly Birthday
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int Sex
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public VISACard VISACard
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public IDCard IDCard
         {
             get => default;
             set

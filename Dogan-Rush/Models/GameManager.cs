@@ -22,5 +22,21 @@ namespace Dogan_Rush.Models
             {
             }
         }
+
+        public ErrorMaker ErrorMaker1
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Generator Generator1
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
