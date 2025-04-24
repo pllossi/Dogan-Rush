@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.Models
 {
     public class ErrorMaker
     {
-        public Generator Generator
+        public VISACard VISACard
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public IDCard IDCard
         {
             get => default;
             set

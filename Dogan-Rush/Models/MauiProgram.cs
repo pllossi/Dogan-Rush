@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.Models
 {
     public static class MauiProgram
     {
@@ -16,7 +16,7 @@ namespace Dogan_Rush
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

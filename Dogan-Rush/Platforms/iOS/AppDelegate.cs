@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Dogan_Rush.Models;
+using Foundation;
 
 namespace Dogan_Rush
 {

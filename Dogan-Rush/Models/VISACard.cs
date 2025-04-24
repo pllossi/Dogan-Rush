@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.Models
 {
-    public class IDCard
+    public class VISACard
     {
-        public int Name
+        public string Name
         {
             get => default;
             set
@@ -15,7 +15,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int Surname
+        public string Surname
         {
             get => default;
             set
@@ -23,7 +23,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int EmissionDate
+        public DateOnly BirthDate
         {
             get => default;
             set
@@ -31,7 +31,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int ExpiringDate
+        public string PassportCode
         {
             get => default;
             set
@@ -39,7 +39,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int IDcode
+        public bool Sex
         {
             get => default;
             set
@@ -47,7 +47,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int BirthDate
+        public DateOnly EmissionDate
         {
             get => default;
             set
@@ -55,7 +55,7 @@ namespace Dogan_Rush
             }
         }
 
-        public int Sex
+        public DateOnly ExpirationDate
         {
             get => default;
             set
@@ -63,7 +63,15 @@ namespace Dogan_Rush
             }
         }
 
-        public int Nationality
+        public Countries PassportCountryEmittor
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Person Owner
         {
             get => default;
             set

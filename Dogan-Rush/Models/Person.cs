@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.Models
 {
     internal class PersonData
     {

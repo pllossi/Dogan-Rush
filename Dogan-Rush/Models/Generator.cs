@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.Models
 {
     public class Generator
     {
-        public ErrorMaker ErrorMaker
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public Person Person
         {
