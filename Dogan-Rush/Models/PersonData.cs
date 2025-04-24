@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dogan_Rush.Models
 {
-    internal class PersonData
+    public class PersonData
     {
         public int MinAge
         {
