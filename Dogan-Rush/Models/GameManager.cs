@@ -12,11 +12,6 @@ namespace Dogan_Rush.Models
             throw new System.NotImplementedException();
         }
 
-        public GameManager()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Generator Generator
         {
             get => default;
@@ -26,22 +21,6 @@ namespace Dogan_Rush.Models
         }
 
         public ErrorMaker ErrorMaker
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public ErrorMaker ErrorMaker1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Generator Generator1
         {
             get => default;
             set

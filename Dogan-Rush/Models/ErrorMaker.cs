@@ -28,22 +28,6 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public IDCard IDCard1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public VISACard VISACard1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public void generateError()
         {
             throw new System.NotImplementedException();

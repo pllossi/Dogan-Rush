@@ -18,36 +18,25 @@
   <Class Name="Dogan_Rush.Models.ErrorMaker">
     <Position X="2.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ErrorMaker.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="IDCard1" />
-      <Property Name="VISACard1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.GameManager">
     <Position X="2.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQEAAAAAQAAAAgAAQAAgBAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQEAAAAAQAAAAAAAQAAABAQAAAAAAAAAA=</HashCode>
       <FileName>Models\GameManager.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ErrorMaker1" />
-      <Property Name="Generator1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.Generator">
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IIAAAAACAAAAAAAAAAAAAAAAEAAEAgAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAACAAAAAAAAAAAAAAAAEAAAAgAAQAAAAAAAAAA=</HashCode>
       <FileName>Models\Generator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="IDCard1" />
-      <Property Name="Person1" />
       <Property Name="PersonData" />
-      <Property Name="VISACard1" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.IDCard">
@@ -88,13 +77,9 @@
   <Class Name="Dogan_Rush.Models.Person">
     <Position X="9.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAABAAAAEAAAAQAFAAIAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAEAAAAQAFAAIAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Person.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="IDCard1" />
-      <Property Name="VISACard1" />
-    </ShowAsAssociation>
   </Class>
   <Enum Name="Dogan_Rush.Models.Countries" Collapsed="true">
     <Position X="13" Y="1.5" Width="1.5" />

@@ -36,22 +36,6 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public IDCard IDCard1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Person Person1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         internal PersonData PersonData
         {
             get => default;
@@ -60,13 +44,6 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public VISACard VISACard1
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public void generate()
         {
