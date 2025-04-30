@@ -16,21 +16,21 @@
     <Position X="7.69" Y="0.649" Height="0.75" Width="1.7" />
   </Comment>
   <Class Name="Dogan_Rush.Models.ErrorMaker">
-    <Position X="2.5" Y="4" Width="1.5" />
+    <Position X="4.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ErrorMaker.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dogan_Rush.Models.GameManager">
-    <Position X="2.5" Y="1" Width="1.5" />
+    <Position X="4.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQEAAAAAQAAAAAAAQAAABAQAAAAAAAAAA=</HashCode>
       <FileName>Models\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dogan_Rush.Models.Generator">
-    <Position X="7.75" Y="1.5" Width="1.5" />
+    <Position X="7.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAACAAAAAAAAAAAAAAAAEAAAAgAAQAAAAAAAAAA=</HashCode>
       <FileName>Models\Generator.cs</FileName>
