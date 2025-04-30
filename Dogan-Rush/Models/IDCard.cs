@@ -7,6 +7,11 @@ namespace Dogan_Rush.Models
 {
     public class IDCard
     {
+        public IDCard()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public string Name
         {
             get => default;

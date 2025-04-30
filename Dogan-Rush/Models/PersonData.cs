@@ -8,6 +8,11 @@ namespace Dogan_Rush.Models
 {
     public class PersonData
     {
+        public PersonData()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public int MinAge
         {
             get => default;

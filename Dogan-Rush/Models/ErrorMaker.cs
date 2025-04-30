@@ -7,6 +7,11 @@ namespace Dogan_Rush.Models
 {
     public class ErrorMaker
     {
+        public ErrorMaker()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public VISACard VISACard
         {
             get => default;
@@ -37,6 +42,11 @@ namespace Dogan_Rush.Models
             set
             {
             }
+        }
+
+        public void generateError()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -7,6 +7,10 @@ namespace Dogan_Rush.Models
 {
     public class Generator
     {
+        public Generator()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public PersonData Person
         {
@@ -62,6 +66,11 @@ namespace Dogan_Rush.Models
             set
             {
             }
+        }
+
+        public void generate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

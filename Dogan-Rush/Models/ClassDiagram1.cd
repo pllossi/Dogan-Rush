@@ -1,10 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="Il codice del documento di identità sarà lo stesso di quello del passaporto">
-    <Position X="3.916" Y="7.312" Height="0.75" Width="1.7" />
+    <Position X="9.058" Y="9.831" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="PersonData è la classe che trovi nel file json&#xD;&#xA;">
+    <Position X="10.951" Y="5.665" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Tutte le nazionalità che puoi trovare nei documenti&#xD;&#xA;">
+    <Position X="12.93" Y="0.714" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Mi genera gli errori direttamente sui documenti&#xD;&#xA;">
+    <Position X="0.732" Y="4.007" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Genera i documenti da applicare sull'oggetto persona&#xD;&#xA;">
+    <Position X="7.69" Y="0.649" Height="0.75" Width="1.7" />
   </Comment>
   <Class Name="Dogan_Rush.Models.ErrorMaker">
-    <Position X="0.5" Y="2.25" Width="1.5" />
+    <Position X="2.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ErrorMaker.cs</FileName>
@@ -15,9 +27,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.GameManager">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="2.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAgAAAAAgBAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQEAAAAAQAAAAgAAQAAgBAQAAAAAAAAAA=</HashCode>
       <FileName>Models\GameManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -26,9 +38,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.Generator">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IIAAAAACAAAAAAAAAAAAAAAAEAAEAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IIAAAAACAAAAAAAAAAAAAAAAEAAEAgAAQAAAAAAAAAA=</HashCode>
       <FileName>Models\Generator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -39,7 +51,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.IDCard">
-    <Position X="2.25" Y="6.75" Width="1.5" />
+    <Position X="7.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABCAAAAABAAAAAAAAQQABAAAAAAABECAAAAACAA=</HashCode>
       <FileName>Models\IDCard.cs</FileName>
@@ -49,22 +61,20 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.PersonData">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="11" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAQAAAQAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\PersonData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dogan_Rush.Models.VISACard">
-    <Position X="0.5" Y="6.75" Width="1.5" />
+    <Position X="5.75" Y="7.75" Width="1.5" />
     <AssociationLine Name="Countries" Type="Dogan_Rush.Models.Countries" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="1.188" Y="9.392" />
-        <Point X="1.188" Y="9.834" />
-        <Point X="9.01" Y="9.834" />
-        <Point X="9.01" Y="1.377" />
-        <Point X="9" Y="1.377" />
-        <Point X="9" Y="1.062" />
+        <Point X="6.438" Y="10.844" />
+        <Point X="6.438" Y="11.219" />
+        <Point X="14" Y="11.219" />
+        <Point X="14" Y="2.062" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -76,14 +86,18 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.Person">
-    <Position X="4" Y="2.5" Width="1.5" />
+    <Position X="9.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAEAAAAQAFAAIAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAABAAAAEAAAAQAFAAIAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Person.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IDCard1" />
+      <Property Name="VISACard1" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="Dogan_Rush.Models.Countries" Collapsed="true">
-    <Position X="8" Y="0.5" Width="1.5" />
+    <Position X="13" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>iv9xbbbzI1rWmtwC3YUk9lZ+Chh6NfxGI3O0rBUA1b8=</HashCode>
       <FileName>Models\Countries.cs</FileName>

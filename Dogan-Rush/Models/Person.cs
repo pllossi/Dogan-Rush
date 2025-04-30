@@ -7,6 +7,11 @@ namespace Dogan_Rush.Models
 {
     public class Person
     {
+        public Person()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public string Name
         {
             get => default;
@@ -56,6 +61,22 @@ namespace Dogan_Rush.Models
         }
 
         public IDCard IDCard
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public IDCard IDCard1
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public VISACard VISACard1
         {
             get => default;
             set

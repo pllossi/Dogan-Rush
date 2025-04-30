@@ -7,6 +7,11 @@ namespace Dogan_Rush.Models
 {
     public class VISACard
     {
+        public VISACard()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public string Name
         {
             get => default;
