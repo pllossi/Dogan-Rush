@@ -92,12 +92,5 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public Countries Countries1
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

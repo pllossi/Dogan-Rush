@@ -52,14 +52,6 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public VISACard VISACard
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public IDCard IDCard
         {
             get => default;
@@ -68,5 +60,12 @@ namespace Dogan_Rush.Models
             }
         }
 
+        public VISACard GeneratedVISACard
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

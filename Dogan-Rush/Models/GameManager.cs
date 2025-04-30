@@ -12,22 +12,6 @@ namespace Dogan_Rush.Models
             throw new System.NotImplementedException();
         }
 
-        public Generator Generator
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public ErrorMaker ErrorMaker
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public bool isDocumentCorrect
         {
             get => default;
@@ -37,6 +21,14 @@ namespace Dogan_Rush.Models
         }
 
         public Person CurrentPerson
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Generator Generator
         {
             get => default;
             set
