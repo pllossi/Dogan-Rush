@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace Dogan_Rush.Models
 {
@@ -13,14 +14,6 @@ namespace Dogan_Rush.Models
         }
 
         public PersonData Person
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        internal PersonData PersonData
         {
             get => default;
             set
@@ -54,7 +47,12 @@ namespace Dogan_Rush.Models
 
         public void generate()
         {
-            throw new System.NotImplementedException();
+            var a = PersonLoader.LoadPeople("\"C:\\Users\\Cesare\\source\\repos\\Dogan-Rush\\Dogan-Rush\\Resources\\PersonData.json\"");
+            var b = PersonLoader.GetRandomPerson(a);
+
+            Random rnd = new Random();
+            //GeneratedPerson = new Person();
+
         }
     }
 }

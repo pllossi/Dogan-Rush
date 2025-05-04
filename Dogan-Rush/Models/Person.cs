@@ -7,7 +7,7 @@ namespace Dogan_Rush.Models
 {
     public class Person
     {
-        public Person()
+        public Person(string name, string surname, int age, DateOnly birthday, IDCard idCard=null, VISACard visaCard =null)
         {
             throw new System.NotImplementedException();
         }

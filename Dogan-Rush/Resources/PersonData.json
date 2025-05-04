@@ -1,0 +1,23 @@
+[
+    { "imageName": "person001.png", "minAge": 20, "maxAge": 30, "isMale": true },
+    { "imageName": "person002.png", "minAge": 35, "maxAge": 45, "isMale": false },
+    { "imageName": "person003.png", "minAge": 50, "maxAge": 60, "isMale": true },
+    { "imageName": "person004.png", "minAge": 18, "maxAge": 25, "isMale": false },
+    { "imageName": "person005.png", "minAge": 40, "maxAge": 55, "isMale": true },
+    { "imageName": "person006.png", "minAge": 30, "maxAge": 40, "isMale": false },
+    { "imageName": "person007.png", "minAge": 22, "maxAge": 32, "isMale": true },
+    { "imageName": "person008.png", "minAge": 28, "maxAge": 38, "isMale": false },
+    { "imageName": "person009.png", "minAge": 60, "maxAge": 75, "isMale": true },
+    { "imageName": "person010.png", "minAge": 25, "maxAge": 35, "isMale": false },
+    { "imageName": "person011.png", "minAge": 45, "maxAge": 55, "isMale": true },
+    { "imageName": "person012.png", "minAge": 31, "maxAge": 41, "isMale": false },
+    { "imageName": "person013.png", "minAge": 36, "maxAge": 46, "isMale": true },
+    { "imageName": "person014.png", "minAge": 19, "maxAge": 27, "isMale": false },
+    { "imageName": "person015.png", "minAge": 52, "maxAge": 65, "isMale": true },
+    { "imageName": "person016.png", "minAge": 24, "maxAge": 34, "isMale": false },
+    { "imageName": "person017.png", "minAge": 29, "maxAge": 39, "isMale": true },
+    { "imageName": "person018.png", "minAge": 43, "maxAge": 53, "isMale": false },
+    { "imageName": "person019.png", "minAge": 21, "maxAge": 31, "isMale": true },
+    { "imageName": "person020.png", "minAge": 33, "maxAge": 45, "isMale": false }
+  ]
+  

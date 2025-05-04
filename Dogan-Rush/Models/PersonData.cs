@@ -8,41 +8,22 @@ namespace Dogan_Rush.Models
 {
     public class PersonData
     {
-        public PersonData()
-        {
-            throw new System.NotImplementedException();
-        }
+        private static readonly Random _random = new();
 
-        public int MinAge
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string ImageName { get; set; }
+        public int MinAge { get; set; }
+        public int MaxAge { get; set; }
+        public bool IsMale { get; set; }
 
-        public int MaxAge
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Age => _random.Next(MinAge, MaxAge + 1);
+        public string Gender => IsMale ? "Male" : "Female";
 
-        public int IsMale
+        public override string ToString()
         {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Generator Generator
-        {
-            get => default;
-            set
-            {
-            }
+            return $"[{ImageName}] Age: {Age}, Gender: {Gender}";
         }
     }
+
+
+}
 }
