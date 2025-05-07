@@ -39,6 +39,11 @@
   </Class>
   <Class Name="Dogan_Rush.Models.Generator">
     <Position X="7.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="GeneratedIDCard" Type="Dogan_Rush.Models.IDCard">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.307" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="VISACard" Type="Dogan_Rush.Models.VISACard" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.25" Y="2.709" />
@@ -49,20 +54,14 @@
         <Position X="-0.848" Y="0.247" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="GeneratedIDCard" Type="Dogan_Rush.Models.IDCard">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.307" Y="0.05" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AIAAAAECAAACAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAEAAAACAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAA=</HashCode>
       <FileName>Models\Generator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="PersonData" />
-      <Property Name="VISACard" />
-      <Property Name="GeneratedIDCard" />
       <Property Name="GeneratedPerson" />
+      <Property Name="GeneratedIDCard" />
+      <Property Name="VISACard" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Dogan_Rush.Models.IDCard">

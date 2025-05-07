@@ -16,7 +16,7 @@ namespace Dogan_Rush.Models
             switch (errorPos)
             {
                 case 0:
-                    //cambiare birthdate, necessario PersonData
+                    //cambiare birthdate, necessario PersonData done
                     break;
                 case 1:
                     //cambiare emissionDate, il tempo è di 5 anni.

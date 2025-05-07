@@ -7,7 +7,7 @@ namespace Dogan_Rush.Models
 {
     public class IDCard
     {
-        public IDCard()
+        public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate)
         {
             throw new System.NotImplementedException();
         }
@@ -69,14 +69,6 @@ namespace Dogan_Rush.Models
         }
 
         public Countries Nationality
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public PersonData Owner
         {
             get => default;
             set

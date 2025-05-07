@@ -8,7 +8,7 @@ namespace Dogan_Rush.Models
 {
     public enum PersonSurname
     {
-               Abate,
+        Abate,
         Aceti,
         Adami,
         Agostini,
