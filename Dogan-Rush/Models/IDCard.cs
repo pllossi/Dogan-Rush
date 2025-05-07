@@ -9,7 +9,13 @@ namespace Dogan_Rush.Models
     {
         public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate)
         {
-            throw new System.NotImplementedException();
+            Name=name;
+            Surname = surname;
+            BirthDate = birthdate;
+            IDcode = code;
+            ExpiringDate = expirationDate;
+            EmissionDate = emissionDate;
+            Sex = sex;
         }
 
         public string Name

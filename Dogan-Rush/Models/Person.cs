@@ -7,9 +7,15 @@ namespace Dogan_Rush.Models
 {
     public class Person
     {
-        public Person(string name, string surname, int age, DateOnly birthday, IDCard idCard=null, VISACard visaCard =null, string imageData)
+        public Person(string name, string surname, int age, DateOnly birthday, IDCard idCard, VISACard visaCard, string imageData)
         {
-            throw new System.NotImplementedException();
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Birthday = birthday;
+            IDCard = idCard;
+            VISACard = visaCard;
+            ImageData = imageData;
         }
 
         public string Name
@@ -60,7 +66,15 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public VISACard GeneratedVISACard
+        public VISACard VISACard
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public string ImageData
         {
             get => default;
             set

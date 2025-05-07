@@ -9,7 +9,13 @@ namespace Dogan_Rush.Models
     {
         public VISACard(string name,string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate, Countries country)
         {
-            throw new System.NotImplementedException();
+            Name = name;
+            Surname = surname;
+            this.Birthdate = birthdate;
+            VISACode= code;
+            this.ExpirationDate = expirationDate;
+            this.EmissionDate = emissionDate;
+            Country = country;
         }
 
         public string Name
@@ -28,7 +34,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public DateOnly BirthDate
+        public DateOnly Birthdate
         {
             get => default;
             set
@@ -36,7 +42,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public string PassportCode
+        public string VISACode
         {
             get => default;
             set
@@ -68,7 +74,7 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public Countries PassportCountryEmittor
+        public Countries Country
         {
             get => default;
             set
