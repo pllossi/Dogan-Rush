@@ -26,4 +26,4 @@ namespace Dogan_Rush.Models
 
 
 }
-}
+
