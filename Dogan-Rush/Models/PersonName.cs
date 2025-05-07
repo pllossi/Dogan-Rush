@@ -173,7 +173,6 @@ namespace Dogan_Rush.Models
         Vasco,
         Vincenzo,
         Vittorio,
-
         // Nomi Femminili
         Ada,
         Adele,
@@ -362,6 +361,5 @@ namespace Dogan_Rush.Models
         Virginia,
         Vittoria,
         Zita
-
     };
 }

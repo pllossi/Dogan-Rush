@@ -7,7 +7,7 @@ namespace Dogan_Rush.Models
 {
     public class VISACard
     {
-        public VISACard()
+        public VISACard(string name,string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate, Countries country)
         {
             throw new System.NotImplementedException();
         }
@@ -76,20 +76,5 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public PersonData Owner
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Countries Countries
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }
