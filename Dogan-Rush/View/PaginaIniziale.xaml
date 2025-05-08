@@ -25,7 +25,15 @@
                     Clicked="btnIstruzioni_Clicked"
                     HorizontalOptions="Center" />
 
+<<<<<<< HEAD
+=======
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+>>>>>>> b2800e55b9fe53fa301003a6634421c48bb3de1a
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

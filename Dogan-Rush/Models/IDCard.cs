@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Dogan_Rush.Models
+﻿namespace Dogan_Rush.Models
 {
     public class IDCard
     {
         public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate)
         {
-            Name=name;
+            Name = name;
             Surname = surname;
             BirthDate = birthdate;
             IDcode = code;
@@ -89,6 +84,5 @@ namespace Dogan_Rush.Models
             {
             }
         }
-
     }
 }

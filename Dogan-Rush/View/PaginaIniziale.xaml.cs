@@ -4,7 +4,7 @@ namespace Dogan_Rush
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private int count = 0;
 
         public MainPage()
         {
@@ -21,5 +21,4 @@ namespace Dogan_Rush
             //verrà mostrate le istruzioni
         }
     }
-
 }
