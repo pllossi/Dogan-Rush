@@ -4,5 +4,8 @@ namespace Dogan_Rush
 {
     public partial class PersonQueueViewModel : ObservableObject
     {
+
+
+
     }
 }
