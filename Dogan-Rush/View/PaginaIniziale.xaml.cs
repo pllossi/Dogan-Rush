@@ -1,4 +1,6 @@
-﻿namespace Dogan_Rush
+﻿using CommunityToolkit.Mvvm.Input;
+
+namespace Dogan_Rush
 {
     public partial class MainPage : ContentPage
     {
@@ -9,16 +11,14 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void btnInizia_Clicked(object sender, EventArgs e)
         {
-            count++;
+            //verrà mostrata l'inizio del gioco
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void btnIstruzioni_Clicked(object sender, EventArgs e)
+        {
+            //verrà mostrate le istruzioni
         }
     }
 
