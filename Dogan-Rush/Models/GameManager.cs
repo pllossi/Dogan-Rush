@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-﻿using System;
+using Foundation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,11 +63,6 @@ namespace Dogan_Rush.Models
             {
                 return _lifeCounter;
             }
-        }
-
-        public GameStatus gameStatus
-        {
-            get { return _gameStatus; }
         }
 
         public void Guess(bool answer)
