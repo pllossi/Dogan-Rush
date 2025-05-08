@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dogan_Rush.Models
+﻿namespace Dogan_Rush.Models
 {
     public static class IDCardErrorInjector
     {
-
         private static readonly Dictionary<char, char[]> similarLetters = new()
         {
             { 'b', new[] { 'd', 'h' } }, { 'd', new[] { 'b', 'o' } },
@@ -122,5 +115,4 @@ namespace Dogan_Rush.Models
             return new string(chars);
         }
     }
-
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
+﻿using System.Text;
 
 namespace Dogan_Rush.Models
 {
@@ -12,7 +8,7 @@ namespace Dogan_Rush.Models
 
         public Generator(DateOnly gameDate)
         {
-             _gameDate = gameDate;
+            _gameDate = gameDate;
         }
 
         public PersonData Person
@@ -63,7 +59,7 @@ namespace Dogan_Rush.Models
             DateOnly birthDate = GetRandomDateOnly(age, _gameDate);
 
             DateOnly emissionDateVisa = GenerateRandomEmissionDate(_gameDate);
-            DateOnly expirationDateVisa=emissionDateVisa.AddDays(5);
+            DateOnly expirationDateVisa = emissionDateVisa.AddDays(5);
 
             DateOnly emissionDateID = GenerateRandomEmissionDate(_gameDate);
             DateOnly expirationDateID = GenerateRandomEmissionDate(_gameDate);
@@ -72,12 +68,11 @@ namespace Dogan_Rush.Models
             string code = GenerateRandomCode();
 
             VISACard visa = new VISACard(name, surname, birthDate, code, isMale, emissionDateVisa, expirationDateVisa, country);
-            IDCard id = new IDCard(name,surname,birthDate,code,isMale,emissionDateID,expirationDateID);
+            IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID);
 
-            Person GeneratedPerson = new Person(name,surname,age,birthDate,id,visa, imageData);
+            Person GeneratedPerson = new Person(name, surname, age, birthDate, id, visa, imageData);
 
             return GeneratedPerson;
-
         }
 
         private DateOnly GetRandomDateOnly(int age, DateOnly currentDate)
@@ -135,6 +130,5 @@ namespace Dogan_Rush.Models
 
             return code.ToString();
         }
-
     }
 }

@@ -1,16 +1,13 @@
-﻿using Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Dogan_Rush.Models
+﻿namespace Dogan_Rush.Models
 {
     public class GameManager
     {
         private int _turnCounter = 1;
+        private int _lifeCounter = 3; //TODO: implement this in the game logic
         private DateOnly _gameDate;
         private Generator _gameGenerator;
+
+        private GameStatus _gameStatus = GameStatus.Playing;
 
         private int nextValueForError = 0; //if the number from the random is lower than this the error will be placed.
 
@@ -22,7 +19,7 @@ namespace Dogan_Rush.Models
             int range = end.DayNumber - start.DayNumber;
 
             Random rand = new Random();
-            int randomOffset = rand.Next(range + 1); // +1 to include endDate  
+            int randomOffset = rand.Next(range + 1); // +1 to include endDate
 
             _gameDate = DateOnly.FromDayNumber(start.DayNumber + randomOffset);
 
@@ -43,16 +40,43 @@ namespace Dogan_Rush.Models
             private set;
         }
 
+        public int TurnCounter
+        {
+            get
+            {
+                return _turnCounter;
+            }
+        }
+
+        public int LifesCounter
+        {
+            get
+            {
+                return _lifeCounter;
+            }
+        }
+
+        public GameStatus gameStatus
+        {
+            get { return _gameStatus; }
+        }
+
         public void Guess(bool answer)
         {
             if (answer == isDocumentCorrect)
             {
-                throw new System.NotImplementedException();
+                _turnCounter++;
                 newTurn();
             }
             else
             {
-                throw new System.NotImplementedException();
+                if (LifesCounter == 1)
+                    _gameStatus = GameStatus.Lose;
+                else
+                {
+                    _lifeCounter--;
+                    newTurn();
+                }
             }
         }
 
@@ -85,7 +109,6 @@ namespace Dogan_Rush.Models
 
             nextValueForError = rnd.Next(0, 100);
             _turnCounter++;
-
         }
     }
 }
