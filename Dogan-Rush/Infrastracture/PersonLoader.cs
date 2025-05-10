@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
+using Dogan_Rush.Models;
 
-namespace Dogan_Rush.Models
+namespace Dogan_Rush.Infrastracture
 {
     public static class PersonLoader
     {

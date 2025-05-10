@@ -57,7 +57,11 @@ namespace Dogan_Rush.View_Models
         [RelayCommand]
         public void OnNextTurn(bool guess)
         {
-            throw new NotImplementedException();
+            gameManager.Guess(guess);
+            LifeCounter = gameManager.LifesCounter;
+
+            gameManager.NewTurn();
+
         }
 
 

@@ -68,7 +68,7 @@ using System.Text;
             if (answer == isDocumentCorrect)
             {
                 _turnCounter++;
-                newTurn();
+                NewTurn();
             }
             else
             {
@@ -77,12 +77,12 @@ using System.Text;
                 else
                 {
                     _lifeCounter--;
-                    newTurn();
+                    NewTurn();
                 }
             }
         }
 
-        public void newTurn()
+        public void NewTurn()
         {
             CurrentPerson = _gameGenerator.generate();
 

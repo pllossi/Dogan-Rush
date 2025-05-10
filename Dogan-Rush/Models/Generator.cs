@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Dogan_Rush.Infrastracture;
 
 namespace Dogan_Rush.Models
 {
