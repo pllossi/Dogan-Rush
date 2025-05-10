@@ -10,22 +10,22 @@ namespace Dogan_Rush.Infrastracture
 {
     public static class PreferenceUtilities
     {
-
-        private static readonly JsonSerializerOptions _defaultJsonSerializerOptions = new()
+        
+        public static void SavePerson(Person person)
         {
-            PropertyNameCaseInsensitive = true,
-        };
+            string json = JsonSerializer.Serialize(person);
+            Preferences.Set("person", json);
+        }
 
         public static Person GetPerson()
         {
-            throw new NotImplementedException();
+            string json = Preferences.Get("person", null);
+            if (string.IsNullOrEmpty(json))
+            {
+                return null;
+            }
+            return JsonSerializer.Deserialize<Person>(json);
         }
-
-        public static void SavePerson(Person person)
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }

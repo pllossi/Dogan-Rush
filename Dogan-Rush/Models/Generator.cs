@@ -46,7 +46,7 @@ namespace Dogan_Rush.Models
 
         public Person generate()
         {
-            var a = PersonLoader.LoadPeople("\"C:\\Users\\Cesare\\source\\repos\\Dogan-Rush\\Dogan-Rush\\Resources\\PersonData.json\"");
+            var a = PersonLoader.LoadPeople();
             PersonData tookData = PersonLoader.GetRandomPerson(a);
 
             Random rnd = new Random();
