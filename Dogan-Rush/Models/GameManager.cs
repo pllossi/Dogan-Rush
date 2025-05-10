@@ -1,13 +1,9 @@
-using Foundation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dogan_Rush.Models
-=======
 ﻿namespace Dogan_Rush.Models
->>>>>>> b2800e55b9fe53fa301003a6634421c48bb3de1a
 {
     public class GameManager
     {

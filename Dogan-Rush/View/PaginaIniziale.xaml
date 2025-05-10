@@ -1,42 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dogan_Rush.MainPage">
+             x:Class="Dogan_Rush.MainPage"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
 
-    <Grid>
-        <!-- Immagine di sfondo -->
-        <Image Source="Resources/Images/Office/Controllo di Frontiera Pixelato.png"
+    <AbsoluteLayout>
+
+        <!-- Sfondo -->
+        <Image Source="sfondo_inizio.png"
                Aspect="AspectFill"
-               Opacity="0.5" />
+               AbsoluteLayout.LayoutBounds="0,0,1,1"
+               AbsoluteLayout.LayoutFlags="All" />
 
-        <!-- Contenuto della pagina -->
-        <ScrollView>
-            <VerticalStackLayout>
+        <!-- Pulsante GIOCA -->
+        <Button Text="GIOCA"
+                FontAttributes="Bold"
+                FontSize="20"
+                TextColor="Black"
+                AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
+                AbsoluteLayout.LayoutFlags="PositionProportional" 
+                Clicked="btnInizia_Clicked"
+                />
 
-                <Label Text="Benvenuto in Dogan Rush!"
-                       SemanticProperties.HeadingLevel="Level1"
-                       HorizontalOptions="Center" />
+        <!-- Pulsante REGOLE -->
+        <Button Text="REGOLE"
+                FontAttributes="Bold"
+                FontSize="20"
+                TextColor="Black"
+                AbsoluteLayout.LayoutBounds="0.5,0.89,350,85"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="btnIstruzioni_Clicked"
+                />
 
-                <Label Text="Scegli un'opzione per iniziare:"
-                       SemanticProperties.HeadingLevel="Level2"
-                       HorizontalOptions="Center" />
-
-                <Button x:Name="btnInizia"
-                        Text="Inizia"
-                        Clicked="btnInizia_Clicked"
-                        HorizontalOptions="Center" />
-
-                <Button x:Name="btnIstruzioni"
-                        Text="Istruzioni"
-                        Clicked="btnIstruzioni_Clicked"
-                        HorizontalOptions="Center" />
-                <Button
-                    x:Name="CounterBtn"
-                    Text="Click me"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    Clicked="OnCounterClicked"
-                    HorizontalOptions="Fill" />
-            </VerticalStackLayout>
-        </ScrollView>
-    </Grid>
+    </AbsoluteLayout>
 </ContentPage>
