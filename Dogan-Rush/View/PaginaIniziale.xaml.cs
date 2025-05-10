@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 
-namespace Dogan_Rush
+namespace Dogan_Rush.View
 {
     public partial class MainPage : ContentPage
     {
@@ -11,9 +11,10 @@ namespace Dogan_Rush
             InitializeComponent();
         }
 
-        private void btnInizia_Clicked(object sender, EventArgs e)
+        [RelayCommand]
+        public async Task IniziaGioco()
         {
-            //verrà mostrata l'inizio del gioco
+            await Navigation.PushAsync(new SchermataGioco());
         }
 
         private void btnIstruzioni_Clicked(object sender, EventArgs e)

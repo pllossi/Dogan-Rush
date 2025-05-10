@@ -1,6 +1,6 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dogan_Rush.MainPage"
+             x:Class="Dogan_Rush.View.MainPage"
              BackgroundColor="Black"
              NavigationPage.HasNavigationBar="False">
 
@@ -19,7 +19,7 @@
                 TextColor="Black"
                 AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional" 
-                Clicked="btnInizia_Clicked"
+                Clicked="{Binding IniziaGiocoCommand}"
                 />
 
         <!-- Pulsante REGOLE -->
