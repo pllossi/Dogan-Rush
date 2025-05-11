@@ -1,5 +1,10 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             xmlns:local="clr-namespace:Dogan_Rush"
+             xmlns:views="clr-namespace:Dogan_Rush.View"
+             xmlns:models="clr-namespace:Dogan_Rush.Models"
              x:Class="Dogan_Rush.View.MainPage"
              BackgroundColor="Black"
              NavigationPage.HasNavigationBar="False">
@@ -19,7 +24,7 @@
                 TextColor="Black"
                 AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional" 
-                Clicked="{Binding IniziaGiocoCommand}"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type views:SchermataGioco}}, Path=IniziaGiocoCommand}"
                 />
 
         <!-- Pulsante REGOLE -->
