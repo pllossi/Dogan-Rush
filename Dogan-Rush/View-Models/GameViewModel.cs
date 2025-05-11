@@ -14,9 +14,8 @@ namespace Dogan_Rush.View_Models
     {
 
         [ObservableProperty]
-        public Person? currPerson = null;
+        public GameManager? savedGame = null;
 
-        private GameManager gameManager = new GameManager();
 
         [ObservableProperty]
         public int lifeCounter = 3;
@@ -27,20 +26,23 @@ namespace Dogan_Rush.View_Models
         }
 
         [RelayCommand]
-        public void OnAppearing()
+        public void OnAppearing(GameManager game = null)
         {
-            currPerson = null;
+            savedGame = null;
 
-            var getLoadedPerson = PreferenceUtilities.GetPerson();
+            var getLoadedGame = PreferenceUtilities.GetGame();
 
-            if (getLoadedPerson != null)
+            if (getLoadedGame != null)
             {
-                currPerson = getLoadedPerson;
+                savedGame = getLoadedGame;
+            }
+            else if(game != null)
+            {
+                savedGame = game;
             }
             else
             {
-                currPerson=gameManager.CurrentPerson;
-                PreferenceUtilities.SavePerson(currPerson);
+                savedGame = new GameManager();
             }
 
         }
@@ -48,19 +50,19 @@ namespace Dogan_Rush.View_Models
         [RelayCommand]
         public void OnDisappearing()
         {
-            if (currPerson != null)
+            if (savedGame != null)
             {
-                PreferenceUtilities.SavePerson(currPerson);
+                PreferenceUtilities.SaveGame(savedGame);
             }
         }
 
         [RelayCommand]
         public void OnNextTurn(bool guess)
         {
-            gameManager.Guess(guess);
-            LifeCounter = gameManager.LifesCounter;
+            savedGame.Guess(guess);
+            LifeCounter = savedGame.LifesCounter;
 
-            gameManager.NewTurn();
+            savedGame.NewTurn();
 
         }
 

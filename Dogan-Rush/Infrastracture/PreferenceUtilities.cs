@@ -11,13 +11,13 @@ namespace Dogan_Rush.Infrastracture
     public static class PreferenceUtilities
     {
 
-        public static void SavePerson(Person person)
+        public static void SaveGame(GameManager game)
         {
-            string json = JsonSerializer.Serialize(person);
-            Preferences.Set("person", json);
+            string json = JsonSerializer.Serialize(game);
+            Preferences.Set("game", json);
         }
 
-        public static Person? GetPerson()
+        public static GameManager? GetGame()
         {
             string? json = Preferences.Get("person", null);
             if (string.IsNullOrEmpty(json))
@@ -26,9 +26,9 @@ namespace Dogan_Rush.Infrastracture
             }
 
             // Clear the stored person data after loading
-            Preferences.Remove("person");
+            Preferences.Remove("game");
 
-            return JsonSerializer.Deserialize<Person>(json);
+            return JsonSerializer.Deserialize<GameManager>(json);
         }
 
 
