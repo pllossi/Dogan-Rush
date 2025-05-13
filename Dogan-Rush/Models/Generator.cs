@@ -50,13 +50,13 @@ namespace Dogan_Rush.Models
             PersonData tookData = PersonLoader.GetRandomPerson(a);
 
             Random rnd = new Random();
-            string imageData = tookData.ImageName;
-            int age = rnd.Next(tookData.MinAge, tookData.MaxAge);
+            string imageData = tookData.imageName;
+            int age = rnd.Next(tookData.minAge, tookData.maxAge);
             PersonName currname = (PersonName)rnd.Next(0, 351);
             string name = currname.ToString();
             PersonSurname currsurname = (PersonSurname)rnd.Next(0, 188);
-            string surname = currname.ToString();
-            bool isMale = tookData.IsMale;
+            string surname = currsurname.ToString();
+            bool isMale = tookData.isMale;
             DateOnly birthDate = GetRandomDateOnly(age, _gameDate);
 
             DateOnly emissionDateVisa = GenerateRandomEmissionDate(_gameDate);

@@ -8,7 +8,7 @@ using System.Text;
 {
     public class GameManager
     {
-        private int _turnCounter = 1;
+        private int _turnCounter = 0; //the game starts from turn 0
         private int _lifeCounter = 3; //TODO: implement this in the game logic
         private DateOnly _gameDate;
         private Generator _gameGenerator;
@@ -31,7 +31,6 @@ using System.Text;
 
             _gameGenerator = new Generator(_gameDate);
 
-            CurrentPerson = _gameGenerator.generate();
         }
 
         public bool isDocumentCorrect
@@ -84,31 +83,33 @@ using System.Text;
         public void NewTurn()
         {
             CurrentPerson = _gameGenerator.generate();
-
-            Random rnd = new Random();
-
-            int randomValue = rnd.Next(0, 100);
-
-            if (randomValue < nextValueForError)
+            if (TurnCounter != 0)
             {
-                int document = rnd.Next(0, 2); // 0 = IDCard, 1 = VisaCard
-                isDocumentCorrect = false;
+                Random rnd = new Random();
 
-                if (document == 0)
+                int randomValue = rnd.Next(0, 100);
+
+                if (randomValue < nextValueForError)
                 {
-                    IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, _turnCounter);
+                    int document = rnd.Next(0, 2); // 0 = IDCard, 1 = VisaCard
+                    isDocumentCorrect = false;
+
+                    if (document == 0)
+                    {
+                        IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, _turnCounter);
+                    }
+                    else
+                    {
+                        VISAErrorInjector.GenerateError(CurrentPerson.VISACard, _turnCounter);
+                    }
                 }
                 else
                 {
-                    VISAErrorInjector.GenerateError(CurrentPerson.VISACard, _turnCounter);
+                    isDocumentCorrect = true;
                 }
-            }
-            else
-            {
-                isDocumentCorrect = true;
-            }
 
-            nextValueForError = rnd.Next(0, 100);
+                nextValueForError = rnd.Next(0, 100);
+            }
             _turnCounter++;
         }
     }

@@ -76,5 +76,10 @@
             {
             }
         }
+
+        public override string ToString()
+        {
+            return $"{Name} {Surname} {Age} {Birthday} {Sex}\n {IDCard}\n {VISACard}\n {ImageData}";
+        }
     }
 }

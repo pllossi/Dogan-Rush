@@ -2,6 +2,7 @@
 {
     public class IDCard
     {
+
         public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate)
         {
             Name = name;
@@ -85,4 +86,4 @@
             }
         }
     }
-}
+    }
