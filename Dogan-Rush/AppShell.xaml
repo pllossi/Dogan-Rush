@@ -11,6 +11,6 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate views:PaginaIniziale}"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="PaginaIniziale" />
 </Shell>
