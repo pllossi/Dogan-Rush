@@ -19,13 +19,12 @@ namespace Dogan_Rush.Infrastracture
 
         public static GameManager? GetGame()
         {
-            string? json = Preferences.Get("person", null);
+            string? json = Preferences.Get("game", null);
             if (string.IsNullOrEmpty(json))
             {
                 return null;
             }
 
-            // Clear the stored person data after loading
             Preferences.Remove("game");
 
             return JsonSerializer.Deserialize<GameManager>(json);

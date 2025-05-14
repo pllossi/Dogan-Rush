@@ -1,65 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dogan_Rush.View.GamePage"
-             Title="SchermataGioco">
-    <VerticalStackLayout>
-        <Label
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodels="clr-namespace:Dogan_Rush.ViewModels"
+             xmlns:models="clr-namespace:Dogan_Rush.Models"
+             x:Class="Dogan_Rush.Views.GamePage"
+             x:DataType="viewmodels:GamePageViewModel"
+             BackgroundColor="Black">
 
+    <Grid RowDefinitions="*,*"
+          ColumnDefinitions="*">
 
+        <!-- Top Half with Background and Stats -->
+        <Grid Row="0">
+            <Image Source="{Binding CurrentPersonImage}"
+                   Aspect="AspectFill"
+                   Opacity="0.4"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill" />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Start"
+                         Margin="10">
+                <Label Text="Errori:"
+                       TextColor="White"
+                       FontSize="20"/>
+                <Label Text="{Binding Errors}"
+                       TextColor="Red"
+                       FontSize="20"
+                       Margin="5,0"/>
+                <Label Text="Turno:"
+                       TextColor="White"
+                       FontSize="20"
+                       Margin="20,0,0,0"/>
+                <Label Text="{Binding Turn}"
+                       TextColor="LightGreen"
+                       FontSize="20"
+                       Margin="5,0"/>
+            </StackLayout>
+        </Grid>
 
-    <AbsoluteLayout>
+        <!-- Bottom Half -->
+        <Grid Row="1">
+            <Image Source="bottom_background.jpg"
+                   Aspect="AspectFill"
+                   Opacity="0.4"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill" />
 
-        <!-- Sfondo -->
-        <Image Source="sfondo_partebassa.png"
-            Aspect="AspectFill"
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
-            AbsoluteLayout.LayoutFlags="All" />
+            <!-- Buttons -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Start"
+                         Margin="10">
+                <Button Text="Correct"
+                    BackgroundColor="Green"
+                    Command="{Binding CorrectCommand}" />
 
-        <!-- Pulsante VISA -->
-        <Button Text="Visa"
-             FontAttributes="Bold"
-             FontSize="20"
-             TextColor="White"
-             AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
-             AbsoluteLayout.LayoutFlags="PositionProportional" 
-             Clicked="Btn_Visa"
-             />
+                <Button Text="Incorrect"
+                    BackgroundColor="Red"
+                    Command="{Binding IncorrectCommand}" /> 
 
-        <!-- Pulsante Id -->
-        <Button Text="Id"
-             FontAttributes="Bold"
-             FontSize="20"
-             TextColor="White"
-             AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
-             AbsoluteLayout.LayoutFlags="PositionProportional" 
-             Clicked="Btn_Id"
-                />
+            </StackLayout>
 
-        <!-- Pulsante ENTRY -->
-        <Button Text="Entry"
-          FontAttributes="Bold"
-          FontSize="20"
-          TextColor="White"
-          AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
-          AbsoluteLayout.LayoutFlags="PositionProportional" 
-          Clicked="btn_Entry"
-          />
+            <!-- Drawers -->
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Center"
+                         Margin="10,0">
+                <Button Text="🪪 ID"
+                        Command="{Binding ToggleIDDrawerCommand}"
+                        WidthRequest="100"
+                        BackgroundColor="#444"
+                        TextColor="White"/>
+                <Button Text="🛂 VISA"
+                        Command="{Binding ToggleVISADrawerCommand}"
+                        WidthRequest="100"
+                        BackgroundColor="#444"
+                        TextColor="White"/>
+            </StackLayout>
 
-        <!-- Pulsante INDIETRO -->
-        <Button Text="INDIETRO"
-             FontAttributes="Bold"
-             FontSize="20"
-             TextColor="White"
-             AbsoluteLayout.LayoutBounds="0.5,0.89,350,85"
-             AbsoluteLayout.LayoutFlags="PositionProportional"
-             Clicked="btnIndietro_MainPage"
-             />
+            <!-- ID Drawer Popup -->
+            <Frame IsVisible="{Binding IsIDDrawerOpen}"
+                   BackgroundColor="#222"
+                   CornerRadius="10"
+                   Padding="10"
+                   Margin="120,0,0,100"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   WidthRequest="300">
+                <StackLayout>
+                    <Label Text="{Binding CurrentIDCard.Name}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.Sex}" TextColor="White"/>
+                </StackLayout>
+            </Frame>
 
-    </AbsoluteLayout>
-    
+            <!-- VISA Drawer Popup -->
+            <Frame IsVisible="{Binding IsVISADrawerOpen}"
+                   BackgroundColor="#222"
+                   CornerRadius="10"
+                   Padding="10"
+                   Margin="120,100,0,0"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   WidthRequest="300">
+                <StackLayout>
+                    <Label Text="{Binding CurrentVISACard.Name}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.Sex}" TextColor="White"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </Grid>
 </ContentPage>
