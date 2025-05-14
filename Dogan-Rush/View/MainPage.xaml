@@ -24,7 +24,7 @@
                 TextColor="Black"
                 AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional" 
-                Command="{Binding Source={RelativeSource AncestorType={x:Type views:SchermataGioco}}, Path=IniziaGiocoCommand}"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type views:GamePage}}, Path=StartGame}"
                 />
 
         <!-- Pulsante REGOLE -->
@@ -34,7 +34,7 @@
                 TextColor="Black"
                 AbsoluteLayout.LayoutBounds="0.5,0.89,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
-                Clicked="btnIstruzioni_Clicked"
+                Clicked="btnInfo_Clicked"
                 />
 
     </AbsoluteLayout>
