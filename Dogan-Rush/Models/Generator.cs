@@ -6,47 +6,16 @@ namespace Dogan_Rush.Models
     public class Generator
     {
         private DateOnly _gameDate;
-
+        private List<PersonData> a;
         public Generator(DateOnly gameDate)
         {
             _gameDate = gameDate;
-        }
-
-        public PersonData Person
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Person GeneratedPerson
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public IDCard GeneratedIDCard
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public VISACard VISACard
-        {
-            get => default;
-            set
-            {
-            }
+            a = PersonLoader.LoadPeople();
         }
 
         public Person generate()
         {
-            var a = PersonLoader.LoadPeople();
+
             PersonData tookData = PersonLoader.GetRandomPerson(a);
 
             Random rnd = new Random();
@@ -71,9 +40,8 @@ namespace Dogan_Rush.Models
             VISACard visa = new VISACard(name, surname, birthDate, code, isMale, emissionDateVisa, expirationDateVisa, country);
             IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID);
 
-            Person GeneratedPerson = new Person(name, surname, age, birthDate, id, visa, imageData);
+            return new Person(name, surname, age, birthDate, id, visa, imageData);
 
-            return GeneratedPerson;
         }
 
         private DateOnly GetRandomDateOnly(int age, DateOnly currentDate)

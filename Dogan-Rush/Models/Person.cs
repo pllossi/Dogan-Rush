@@ -2,84 +2,23 @@
 {
     public class Person
     {
-        public Person(string name, string surname, int age, DateOnly birthday, IDCard idCard, VISACard visaCard, string imageData)
+        public string Name { get; }
+        public string Surname { get; }
+        public int Age { get; }
+        public DateOnly BirthDate { get; }
+        public IDCard IDCard { get; }
+        public VISACard VISACard { get; }
+        public string ImageData { get; }
+
+        public Person(string name, string surname, int age, DateOnly birthDate, IDCard idCard, VISACard visaCard, string imageData)
         {
             Name = name;
             Surname = surname;
             Age = age;
-            Birthday = birthday;
+            BirthDate = birthDate;
             IDCard = idCard;
             VISACard = visaCard;
             ImageData = imageData;
-        }
-
-        public string Name
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string Surname
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int Age
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public DateOnly Birthday
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int Sex
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public IDCard IDCard
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public VISACard VISACard
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string ImageData
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public override string ToString()
-        {
-            return $"{Name} {Surname} {Age} {Birthday} {Sex}\n {IDCard}\n {VISACard}\n {ImageData}";
         }
     }
 }
