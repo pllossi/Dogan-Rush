@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Dogan_Rush.ViewModels"
              xmlns:models="clr-namespace:Dogan_Rush.Models"
-             x:Class="Dogan_Rush.Views.GamePage"
+             x:Class="Dogan_Rush.View.GamePage"
              x:DataType="viewmodels:GamePageViewModel"
              BackgroundColor="Black">
 
@@ -54,11 +54,11 @@
                          Margin="10">
                 <Button Text="Correct"
                     BackgroundColor="Green"
-                    Command="{Binding CorrectCommand}" />
+                    Command="{Binding  CorrectPressedCommand}" />
 
                 <Button Text="Incorrect"
                     BackgroundColor="Red"
-                    Command="{Binding IncorrectCommand}" /> 
+                    Command="{Binding WrongPressedCommand}" /> 
 
             </StackLayout>
 
@@ -80,7 +80,7 @@
             </StackLayout>
 
             <!-- ID Drawer Popup -->
-            <Frame IsVisible="{Binding IsIDDrawerOpen}"
+            <Frame IsVisible="{Binding IsIDDrawerVisible}"
                    BackgroundColor="#222"
                    CornerRadius="10"
                    Padding="10"
@@ -100,7 +100,7 @@
             </Frame>
 
             <!-- VISA Drawer Popup -->
-            <Frame IsVisible="{Binding IsVISADrawerOpen}"
+            <Frame IsVisible="{Binding IsVISADrawerVisible}"
                    BackgroundColor="#222"
                    CornerRadius="10"
                    Padding="10"

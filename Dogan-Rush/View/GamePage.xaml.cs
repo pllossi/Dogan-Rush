@@ -1,5 +1,8 @@
 using Dogan_Rush.ViewModels;
+using Dogan_Rush.Infrastracture;
 using Dogan_Rush.Models;
+using Dogan_Rush.View;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Dogan_Rush.View
 {
@@ -15,16 +18,18 @@ namespace Dogan_Rush.View
             BindingContext = _viewModel;  // Bind the ViewModel to the page
         }
 
+        [RelayCommand]
         // Method to handle Correct button click
-        private void OnCorrectClicked(object sender, EventArgs e)
+        private void OnCorrectClicked()
         {
-            _viewModel.Correct();  // Call the Correct method in the ViewModel
+            _viewModel.OnCorrectPressed();  // Call the Correct method in the ViewModel
         }
 
+        [RelayCommand]
         // Method to handle Incorrect button click
-        private void OnIncorrectClicked(object sender, EventArgs e)
+        private void OnIncorrectClicked()
         {
-            _viewModel.Incorrect();  // Call the Incorrect method in the ViewModel
+            _viewModel.OnWrongPressed();  // Call the Incorrect method in the ViewModel
         }
     }
 }

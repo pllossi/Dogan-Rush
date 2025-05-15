@@ -4,27 +4,37 @@ using System.Runtime.CompilerServices;
 using Dogan_Rush.Models;
 using Dogan_Rush.Infrastracture;
 using Microsoft.Maui.Graphics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Dogan_Rush.ViewModels
 {
-    public partial class GamePageViewModel : INotifyPropertyChanged
+    public partial class GamePageViewModel : ObservableObject, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private GameManager _gameManager;
         private ImageSource _personImage;
-        private bool _isIDDrawerVisible;
-        private bool _isVISADrawerVisible;
+        [ObservableProperty]
+        public bool _isIDDrawerVisible;
+        [ObservableProperty]
+        public bool _isVISADrawerVisible;
+
+        [ObservableProperty]
+        public string _currentPersonImage;
+        [ObservableProperty]
+        public int _errors;
+        [ObservableProperty]
+        public int _turn;
+        [ObservableProperty]
+        public VISACard _currentVISACard;
+        [ObservableProperty]
+        public IDCard _currentIDCard;
 
         public GamePageViewModel()
         {
             // Prova a recuperare il salvataggio
             _gameManager = PreferenceUtilities.GetGame() ?? new GameManager();
-
-            GuessCorrectCommand = new Command(OnCorrectPressed);
-            GuessWrongCommand = new Command(OnWrongPressed);
-            ToggleIDDrawerCommand = new Command(() => IsIDDrawerVisible = !IsIDDrawerVisible);
-            ToggleVISADrawerCommand = new Command(() => IsVISADrawerVisible = !IsVISADrawerVisible);
         }
 
         public GameManager GameManager => _gameManager;
@@ -41,10 +51,11 @@ namespace Dogan_Rush.ViewModels
 
         public int ErrorCountViewModel => 3 - _gameManager.LifesCounter;
         public int TurnCount => _gameManager.TurnCounter;
+        
 
-        public bool IsIDDrawerVisible
+        private bool _IsIDDrawerVisible_
         {
-            get => _isIDDrawerVisible;
+           
             set
             {
                 _isIDDrawerVisible = value;
@@ -52,9 +63,9 @@ namespace Dogan_Rush.ViewModels
             }
         }
 
-        public bool IsVISADrawerVisible
+
+        public bool IsVISADrawerVisible_
         {
-            get => _isVISADrawerVisible;
             set
             {
                 _isVISADrawerVisible = value;
@@ -74,6 +85,9 @@ namespace Dogan_Rush.ViewModels
         {
             _gameManager.NewTurn();
 
+            _currentIDCard = _gameManager.CurrentPerson.IDCard;
+            _currentVISACard = _gameManager.CurrentPerson.VISACard;
+
             OnPropertyChanged(nameof(CurrentPerson));
             OnPropertyChanged(nameof(ErrorCountViewModel));
             OnPropertyChanged(nameof(TurnCount));
@@ -92,18 +106,19 @@ namespace Dogan_Rush.ViewModels
             }
 
             // Chiude i cassetti ad ogni turno
-            IsIDDrawerVisible = false;
-            IsVISADrawerVisible = false;
+            _isIDDrawerVisible = false;
+            _isVISADrawerVisible = false;
         }
 
-
-        private void OnCorrectPressed()
+        [RelayCommand]
+        public async Task OnCorrectPressed()
         {
             _gameManager.Guess(true);
             LoadNextPerson();
         }
 
-        private void OnWrongPressed()
+        [RelayCommand]
+        public async Task OnWrongPressed()
         {
             _gameManager.Guess(false);
             LoadNextPerson();
@@ -113,5 +128,10 @@ namespace Dogan_Rush.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+
+       
+
+
     }
 }

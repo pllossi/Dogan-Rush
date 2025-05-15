@@ -25,7 +25,7 @@
         TextColor="Black"
         AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
         AbsoluteLayout.LayoutFlags="PositionProportional"
-        Clicked="OnStartGameClicked" />
+        Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=StartGameClickedCommand}" />
 
 
 

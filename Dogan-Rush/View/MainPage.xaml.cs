@@ -1,7 +1,7 @@
 ﻿using Dogan_Rush.ViewModels;
 using Dogan_Rush.Infrastracture;
 using Dogan_Rush.Models;
-using Dogan_Rush.Views;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Dogan_Rush.View
 {
@@ -19,7 +19,8 @@ namespace Dogan_Rush.View
             // Mostra istruzioni
         }
 
-        private async void OnStartGameClicked(object sender, EventArgs e)
+        [RelayCommand]
+        public async Task OnStartGameClicked()
         {
             await Navigation.PushAsync(new GamePage());
         }

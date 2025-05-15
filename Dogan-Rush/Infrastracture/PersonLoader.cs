@@ -7,7 +7,7 @@ namespace Dogan_Rush.Infrastracture
     {
         private static readonly Random _random = new();
 
-        public static List<PersonData> LoadPeople(string jsonPath= "cd..\\Resources\\PersonData.json")
+        public static List<PersonData>? LoadPeople(string jsonPath= ".\\Resources\\PersonData.json")
         {
             string json = File.ReadAllText(jsonPath);
             return JsonSerializer.Deserialize<List<PersonData>>(json);

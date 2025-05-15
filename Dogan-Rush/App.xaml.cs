@@ -1,5 +1,4 @@
 ﻿using Dogan_Rush.View;
-using Dogan_Rush.Views;
 namespace Dogan_Rush
 {
     public partial class App : Application
