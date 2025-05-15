@@ -53,7 +53,7 @@ namespace Dogan_Rush.ViewModels
         public int TurnCount => _gameManager.TurnCounter;
         
 
-        private bool _IsIDDrawerVisible_
+        private bool IsIDDrawerVisible_
         {
            
             set
@@ -88,9 +88,18 @@ namespace Dogan_Rush.ViewModels
             _currentIDCard = _gameManager.CurrentPerson.IDCard;
             _currentVISACard = _gameManager.CurrentPerson.VISACard;
 
+            _currentPersonImage = _gameManager.CurrentPerson.ImageData;
+            _errors = 3 - _gameManager.LifesCounter;
+
             OnPropertyChanged(nameof(CurrentPerson));
             OnPropertyChanged(nameof(ErrorCountViewModel));
             OnPropertyChanged(nameof(TurnCount));
+            OnPropertyChanged(nameof(CurrentIDCard));
+            OnPropertyChanged(nameof(CurrentVISACard));
+            OnPropertyChanged(nameof(CurrentPersonImage));
+            OnPropertyChanged(nameof(PersonImage));
+            OnPropertyChanged(nameof(IsIDDrawerVisible_));
+            OnPropertyChanged(nameof(IsVISADrawerVisible_));
 
             // Caricamento immagine dal campo ImageData
             if (!string.IsNullOrEmpty(CurrentPerson.ImageData))

@@ -1,7 +1,6 @@
 using Dogan_Rush.ViewModels;
 using Dogan_Rush.Infrastracture;
 using Dogan_Rush.Models;
-using Dogan_Rush.View;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Dogan_Rush.View
