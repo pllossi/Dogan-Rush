@@ -11,7 +11,7 @@ namespace Dogan_Rush.Infrastracture
         {
             if (string.IsNullOrEmpty(jsonPath))
             {
-                jsonPath = Path.Combine(FileSystem.Current.AppDataDirectory, "PersonData.json");
+                jsonPath = Path.Combine("PersonData.json");
 
                 if (!File.Exists(jsonPath))
                 {

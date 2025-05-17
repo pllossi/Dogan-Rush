@@ -19,16 +19,18 @@ namespace Dogan_Rush.View
 
         [RelayCommand]
         // Method to handle Correct button click
-        private void OnCorrectClicked()
+        private async void OnCorrectClicked()
         {
-            _viewModel.OnCorrectPressed();  // Call the Correct method in the ViewModel
+            await _viewModel.OnCorrectPressed();
+            // Call the Correct method in the ViewModel
         }
 
         [RelayCommand]
         // Method to handle Incorrect button click
-        private void OnIncorrectClicked()
+        private async void OnIncorrectClicked()
         {
-            _viewModel.OnWrongPressed();  // Call the Incorrect method in the ViewModel
+            await _viewModel.OnWrongPressed();
+            // Call the Incorrect method in the ViewModel
         }
     }
 }

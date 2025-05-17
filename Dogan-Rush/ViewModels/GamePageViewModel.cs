@@ -13,23 +13,22 @@ namespace Dogan_Rush.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private GameManager _gameManager;
-        private ImageSource _personImage;
+        private GameManager? _gameManager;
+        private ImageSource? _personImage;
         [ObservableProperty]
-        public bool _isIDDrawerVisible;
+        public bool? _isIDDrawerVisible;
         [ObservableProperty]
-        public bool _isVISADrawerVisible;
-
+        public bool? _isVISADrawerVisible;
         [ObservableProperty]
-        public string _currentPersonImage;
+        public string? _currentPersonImage;
         [ObservableProperty]
-        public int _errors;
+        public int? _errors;
         [ObservableProperty]
-        public int _turn;
+        public int? _turn;
         [ObservableProperty]
-        public VISACard _currentVISACard;
+        public VISACard? _currentVISACard;
         [ObservableProperty]
-        public IDCard _currentIDCard;
+        public IDCard? _currentIDCard;
 
         public GamePageViewModel()
         {
@@ -58,7 +57,7 @@ namespace Dogan_Rush.ViewModels
            
             set
             {
-                _isIDDrawerVisible = value;
+                IsIDDrawerVisible = value;
                 OnPropertyChanged();
             }
         }
@@ -68,7 +67,7 @@ namespace Dogan_Rush.ViewModels
         {
             set
             {
-                _isVISADrawerVisible = value;
+                IsVISADrawerVisible = value;
                 OnPropertyChanged();
             }
         }
@@ -85,11 +84,11 @@ namespace Dogan_Rush.ViewModels
         {
             _gameManager.NewTurn();
 
-            _currentIDCard = _gameManager.CurrentPerson.IDCard;
-            _currentVISACard = _gameManager.CurrentPerson.VISACard;
+            CurrentIDCard = _gameManager.CurrentPerson.IDCard;
+            CurrentVISACard = _gameManager.CurrentPerson.VISACard;
 
-            _currentPersonImage = _gameManager.CurrentPerson.ImageData;
-            _errors = 3 - _gameManager.LifesCounter;
+            CurrentPersonImage = _gameManager.CurrentPerson.ImageData;
+            Errors = 3 - _gameManager.LifesCounter;
 
             OnPropertyChanged(nameof(CurrentPerson));
             OnPropertyChanged(nameof(ErrorCountViewModel));
@@ -115,8 +114,8 @@ namespace Dogan_Rush.ViewModels
             }
 
             // Chiude i cassetti ad ogni turno
-            _isIDDrawerVisible = false;
-            _isVISADrawerVisible = false;
+            IsIDDrawerVisible = false;
+            IsVISADrawerVisible = false;
         }
 
         [RelayCommand]
@@ -138,8 +137,19 @@ namespace Dogan_Rush.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        [RelayCommand]
+        public void ToggleIDDrawer()
+        {
+            IsIDDrawerVisible_ = !_isIDDrawerVisible;
+            IsVISADrawerVisible_ = false;
+        }
 
-       
+        [RelayCommand]
+        public void ToggleVISADrawer()
+        {
+            IsVISADrawerVisible_ = !_isVISADrawerVisible;
+            IsIDDrawerVisible_ = false;
+        }
 
 
     }
