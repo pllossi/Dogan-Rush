@@ -27,8 +27,6 @@
         AbsoluteLayout.LayoutFlags="PositionProportional"
         Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=StartGameClickedCommand}" />
 
-
-
         <!-- Pulsante REGOLE -->
         <Button Text="REGOLE"
                 FontAttributes="Bold"
@@ -37,6 +35,5 @@
                 AbsoluteLayout.LayoutBounds="0.5,0.89,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 Clicked="btnInfo_Clicked" />
-
     </AbsoluteLayout>
 </ContentPage>

@@ -1,7 +1,5 @@
-using Dogan_Rush.ViewModels;
-using Dogan_Rush.Infrastracture;
-using Dogan_Rush.Models;
 using CommunityToolkit.Mvvm.Input;
+using Dogan_Rush.ViewModels;
 
 namespace Dogan_Rush.View
 {
@@ -18,7 +16,6 @@ namespace Dogan_Rush.View
         }
 
         [RelayCommand]
-        // Method to handle Correct button click
         private async void OnCorrectClicked()
         {
             await _viewModel.OnCorrectPressed();
@@ -26,7 +23,6 @@ namespace Dogan_Rush.View
         }
 
         [RelayCommand]
-        // Method to handle Incorrect button click
         private async void OnIncorrectClicked()
         {
             await _viewModel.OnWrongPressed();

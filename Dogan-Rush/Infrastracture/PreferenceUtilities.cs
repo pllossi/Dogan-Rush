@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Dogan_Rush.Models;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Dogan_Rush.Models;
 
 namespace Dogan_Rush.Infrastracture
 {
     public static class PreferenceUtilities
     {
-
         public static void SaveGame(GameManager game)
         {
             string json = JsonSerializer.Serialize(game);
@@ -29,7 +23,5 @@ namespace Dogan_Rush.Infrastracture
 
             return JsonSerializer.Deserialize<GameManager>(json);
         }
-
-
     }
 }

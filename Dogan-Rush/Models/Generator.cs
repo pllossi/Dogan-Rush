@@ -1,21 +1,21 @@
-﻿using System.Text;
-using Dogan_Rush.Infrastracture;
+﻿using Dogan_Rush.Infrastracture;
+using System.Text;
 
 namespace Dogan_Rush.Models
 {
     public class Generator
     {
         private DateOnly _gameDate;
-        private List<PersonData> a;
+        private List<PersonData?> a;
+
         public Generator(DateOnly gameDate)
         {
             _gameDate = gameDate;
-            a = PersonLoader.LoadPeople();
+            a = PersonLoader.LoadPeopleData();
         }
 
         public Person generate()
         {
-
             PersonData tookData = PersonLoader.GetRandomPerson(a);
 
             Random rnd = new Random();
@@ -41,7 +41,6 @@ namespace Dogan_Rush.Models
             IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID);
 
             return new Person(name, surname, age, birthDate, id, visa, imageData);
-
         }
 
         private DateOnly GetRandomDateOnly(int age, DateOnly currentDate)

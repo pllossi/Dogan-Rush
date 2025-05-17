@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-
-﻿namespace Dogan_Rush.Models
+namespace Dogan_Rush.Models
 {
     public class GameManager
     {
@@ -30,7 +24,6 @@ using System.Text;
             _gameDate = DateOnly.FromDayNumber(start.DayNumber + randomOffset);
 
             _gameGenerator = new Generator(_gameDate);
-
         }
 
         public bool isDocumentCorrect

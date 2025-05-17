@@ -1,7 +1,6 @@
-﻿using Dogan_Rush.ViewModels;
-using Dogan_Rush.Infrastracture;
-using Dogan_Rush.Models;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
+
+using Dogan_Rush.ViewModels;
 
 namespace Dogan_Rush.View
 {
@@ -13,7 +12,6 @@ namespace Dogan_Rush.View
             BindingContext = new MainPageViewModel();
         }
 
-
         private void btnInfo_Clicked(object sender, EventArgs e)
         {
             // Mostra istruzioni
@@ -24,7 +22,5 @@ namespace Dogan_Rush.View
         {
             await Navigation.PushAsync(new GamePage());
         }
-
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Dogan_Rush.Models;
 using Dogan_Rush.View;
 
 namespace Dogan_Rush.ViewModels

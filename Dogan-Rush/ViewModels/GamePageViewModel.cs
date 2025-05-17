@@ -1,11 +1,9 @@
-﻿using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Dogan_Rush.Infrastracture;
+using Dogan_Rush.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Dogan_Rush.Models;
-using Dogan_Rush.Infrastracture;
-using Microsoft.Maui.Graphics;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace Dogan_Rush.ViewModels
 {
@@ -15,18 +13,25 @@ namespace Dogan_Rush.ViewModels
 
         private GameManager? _gameManager;
         private ImageSource? _personImage;
+
         [ObservableProperty]
         public bool? _isIDDrawerVisible;
+
         [ObservableProperty]
         public bool? _isVISADrawerVisible;
+
         [ObservableProperty]
         public string? _currentPersonImage;
+
         [ObservableProperty]
         public int? _errors;
+
         [ObservableProperty]
         public int? _turn;
+
         [ObservableProperty]
         public VISACard? _currentVISACard;
+
         [ObservableProperty]
         public IDCard? _currentIDCard;
 
@@ -34,11 +39,14 @@ namespace Dogan_Rush.ViewModels
         {
             // Prova a recuperare il salvataggio
             _gameManager = PreferenceUtilities.GetGame() ?? new GameManager();
+            if(PreferenceUtilities.GetGame() == null )
+                _gameManager = new GameManager();
+            _gameManager.NewTurn();
         }
 
         public GameManager GameManager => _gameManager;
 
-        public ImageSource PersonImage
+        public ImageSource? PersonImage
         {
             get => _personImage;
             set
@@ -50,11 +58,9 @@ namespace Dogan_Rush.ViewModels
 
         public int ErrorCountViewModel => 3 - _gameManager.LifesCounter;
         public int TurnCount => _gameManager.TurnCounter;
-        
 
-        private bool IsIDDrawerVisible_
+        private bool? IsIDDrawerVisible_
         {
-           
             set
             {
                 IsIDDrawerVisible = value;
@@ -62,8 +68,7 @@ namespace Dogan_Rush.ViewModels
             }
         }
 
-
-        public bool IsVISADrawerVisible_
+        public bool? IsVISADrawerVisible_
         {
             set
             {
@@ -72,13 +77,7 @@ namespace Dogan_Rush.ViewModels
             }
         }
 
-        public Person CurrentPerson => _gameManager.CurrentPerson;
-
-        public ICommand GuessCorrectCommand { get; }
-        public ICommand GuessWrongCommand { get; }
-
-        public ICommand ToggleIDDrawerCommand { get; }
-        public ICommand ToggleVISADrawerCommand { get; }
+        public Person? CurrentPerson => _gameManager.CurrentPerson;
 
         public void LoadNextPerson()
         {
@@ -109,7 +108,7 @@ namespace Dogan_Rush.ViewModels
                 }
                 else
                 {
-                    PersonImage = ImageSource.FromFile(CurrentPerson.ImageData);
+                    PersonImage = ImageSource.FromFile("\\Resources\\" + CurrentPerson.ImageData);
                 }
             }
 
@@ -121,6 +120,8 @@ namespace Dogan_Rush.ViewModels
         [RelayCommand]
         public async Task OnCorrectPressed()
         {
+            if (_gameManager == null)
+                return;
             _gameManager.Guess(true);
             LoadNextPerson();
         }
@@ -128,6 +129,8 @@ namespace Dogan_Rush.ViewModels
         [RelayCommand]
         public async Task OnWrongPressed()
         {
+            if (_gameManager == null)
+                return;
             _gameManager.Guess(false);
             LoadNextPerson();
         }
@@ -140,17 +143,15 @@ namespace Dogan_Rush.ViewModels
         [RelayCommand]
         public void ToggleIDDrawer()
         {
-            IsIDDrawerVisible_ = !_isIDDrawerVisible;
-            IsVISADrawerVisible_ = false;
+            IsIDDrawerVisible_ = !IsIDDrawerVisible;
+            IsVISADrawerVisible_ = !IsIDDrawerVisible;
         }
 
         [RelayCommand]
         public void ToggleVISADrawer()
         {
-            IsVISADrawerVisible_ = !_isVISADrawerVisible;
-            IsIDDrawerVisible_ = false;
+            IsVISADrawerVisible_ = !IsVISADrawerVisible;
+            IsIDDrawerVisible_ = !IsVISADrawerVisible;
         }
-
-
     }
 }

@@ -23,19 +23,19 @@
                          Margin="10">
                 <Label Text="Errori:"
                        TextColor="White"
-                       FontSize="20"/>
+                       FontSize="20" />
                 <Label Text="{Binding Errors}"
                        TextColor="Red"
                        FontSize="20"
-                       Margin="5,0"/>
+                       Margin="5,0" />
                 <Label Text="Turno:"
                        TextColor="White"
                        FontSize="20"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0,0,0" />
                 <Label Text="{Binding Turn}"
                        TextColor="LightGreen"
                        FontSize="20"
-                       Margin="5,0"/>
+                       Margin="5,0" />
             </StackLayout>
         </Grid>
 
@@ -54,12 +54,11 @@
                          Margin="10">
                 <Button Text="Correct"
                     BackgroundColor="Green"
-                    Command="{Binding  CorrectPressedCommand}" />
+                    Command="{Binding CorrectPressedCommand}" />
 
                 <Button Text="Incorrect"
                     BackgroundColor="Red"
-                    Command="{Binding WrongPressedCommand}" /> 
-
+                    Command="{Binding WrongPressedCommand}" />
             </StackLayout>
 
             <!-- Drawers -->
@@ -71,12 +70,12 @@
                         Command="{Binding ToggleIDDrawerCommand}"
                         WidthRequest="100"
                         BackgroundColor="#444"
-                        TextColor="White"/>
+                        TextColor="White" />
                 <Button Text="🛂 VISA"
                         Command="{Binding ToggleVISADrawerCommand}"
                         WidthRequest="100"
                         BackgroundColor="#444"
-                        TextColor="White"/>
+                        TextColor="White" />
             </StackLayout>
 
             <!-- ID Drawer Popup -->
@@ -89,13 +88,13 @@
                    VerticalOptions="Center"
                    WidthRequest="300">
                 <StackLayout>
-                    <Label Text="{Binding CurrentIDCard.Name}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentIDCard.Sex}" TextColor="White"/>
+                    <Label Text="{Binding CurrentIDCard.Name}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.Sex}" TextColor="White" />
                 </StackLayout>
             </Frame>
 
@@ -109,13 +108,13 @@
                    VerticalOptions="Center"
                    WidthRequest="300">
                 <StackLayout>
-                    <Label Text="{Binding CurrentVISACard.Name}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White"/>
-                    <Label Text="{Binding CurrentVISACard.Sex}" TextColor="White"/>
+                    <Label Text="{Binding CurrentVISACard.Name}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White" />
+                    <Label Text="{Binding CurrentVISACard.Sex}" TextColor="White" />
                 </StackLayout>
             </Frame>
         </Grid>
