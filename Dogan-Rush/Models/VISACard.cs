@@ -13,68 +13,20 @@
             Country = country;
         }
 
-        public string Name
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Name;
 
-        public string Surname
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Surname;
 
-        public DateOnly Birthdate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateOnly Birthdate;
 
-        public string VISACode
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string VISACode;
 
-        public bool Sex
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public bool Sex;
 
-        public DateOnly EmissionDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateOnly EmissionDate;
 
-        public DateOnly ExpirationDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateOnly ExpirationDate;
 
-        public Countries Country
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Countries Country;
     }
 }

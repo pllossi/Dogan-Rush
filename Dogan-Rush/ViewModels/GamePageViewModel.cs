@@ -39,7 +39,7 @@ namespace Dogan_Rush.ViewModels
         {
             // Prova a recuperare il salvataggio
             _gameManager = PreferenceUtilities.GetGame() ?? new GameManager();
-            if(PreferenceUtilities.GetGame() == null )
+            if (PreferenceUtilities.GetGame() == null)
                 _gameManager = new GameManager();
             _gameManager.NewTurn();
         }
@@ -81,8 +81,6 @@ namespace Dogan_Rush.ViewModels
 
         public void LoadNextPerson()
         {
-            _gameManager.NewTurn();
-
             CurrentIDCard = _gameManager.CurrentPerson.IDCard;
             CurrentVISACard = _gameManager.CurrentPerson.VISACard;
 

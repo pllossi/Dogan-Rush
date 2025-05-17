@@ -4,15 +4,14 @@
              x:Class="Dogan_Rush.View.Regole"
              Title="Regole">
     <VerticalStackLayout>
-        <Label 
+        <Label
             Text="Regolamento: "
-            VerticalOptions="Center" 
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
         <Label
             Text="Il gioco consiste nel dover decidere "
             VerticalOptions="Center"
-            HorizontalOptions="Center"
-            />
+            HorizontalOptions="Center" />
         <Label
             Text="se una persona può passare la dogana"
             VerticalOptions="Center"
@@ -26,9 +25,8 @@
             VerticalOptions="Center"
             HorizontalOptions="Center" />
         <Button
-            Command=""
+            Command="{Binding }"
             Text="Indietro"
-            Margin="0,0,100,0"
-            />
+            Margin="0,0,100,0" />
     </VerticalStackLayout>
 </ContentPage>

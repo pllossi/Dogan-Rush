@@ -1,16 +1,12 @@
 ﻿using Dogan_Rush.Models;
 using System.Text.Json;
-using System;
-using System.IO;
-using System.Text.Json;
-using System.Collections.Generic;
 
 namespace Dogan_Rush.Infrastracture
 {
     public static class PersonLoader
     {
         private static readonly Random _random = new();
-        private static List<PersonData> nullPerson = new List<PersonData>(1) {new PersonData("person01.png",20,30,true) };
+        private static List<PersonData> nullPerson = new List<PersonData>(1) { new PersonData("person01.png", 20, 30, true) };
 
         public static List<PersonData>? LoadPeopleData()
         {

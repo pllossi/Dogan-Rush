@@ -2,7 +2,7 @@
 {
     public class PersonData
     {
-        public PersonData(string imagename, int minage, int maxage, bool ismale) 
+        public PersonData(string imagename, int minage, int maxage, bool ismale)
         {
             imageName = imagename;
             minAge = minage;

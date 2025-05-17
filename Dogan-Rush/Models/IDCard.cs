@@ -13,76 +13,20 @@
             Sex = sex;
         }
 
-        public string Name
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Name;
+        public string Surname;
 
-        public string Surname
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateOnly EmissionDate;
+        public DateOnly ExpiringDate;
 
-        public DateOnly EmissionDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string IDcode;
 
-        public DateOnly ExpiringDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateOnly BirthDate;
 
-        public string IDcode
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public bool Sex;
 
-        public DateOnly BirthDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Countries Nationality;
 
-        public bool Sex
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Countries Nationality
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Countries Countries
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Countries Countries;
     }
 }
