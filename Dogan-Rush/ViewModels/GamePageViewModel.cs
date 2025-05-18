@@ -9,147 +9,106 @@ namespace Dogan_Rush.ViewModels
 {
     public partial class GamePageViewModel : ObservableObject, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private GameManager? _gameManager;
-        private ImageSource? _personImage;
+        
+        private readonly GameManager _gameManager;
 
         [ObservableProperty]
-        public bool? _isIDDrawerVisible;
+        private IDCard? currentIDCard;
 
         [ObservableProperty]
-        public bool? _isVISADrawerVisible;
+        private VISACard? currentVISACard;
 
         [ObservableProperty]
-        public string? _currentPersonImage;
+        private string? currentPersonImage;
 
         [ObservableProperty]
-        public int? _errors;
+        private ImageSource? personImage;
 
         [ObservableProperty]
-        public int? _turn;
+        private bool isIDDrawerVisible;
 
         [ObservableProperty]
-        public VISACard? _currentVISACard;
+        private bool isVISADrawerVisible;
 
         [ObservableProperty]
-        public IDCard? _currentIDCard;
+        private int errors;
+
+        [ObservableProperty]
+        private int turnCount;
 
         public GamePageViewModel()
         {
-            // Prova a recuperare il salvataggio
             _gameManager = PreferenceUtilities.GetGame() ?? new GameManager();
-            if (PreferenceUtilities.GetGame() == null)
-                _gameManager = new GameManager();
             _gameManager.NewTurn();
         }
 
         public GameManager GameManager => _gameManager;
 
-        public ImageSource? PersonImage
-        {
-            get => _personImage;
-            set
-            {
-                _personImage = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int ErrorCountViewModel => 3 - _gameManager.LifesCounter;
-        public int TurnCount => _gameManager.TurnCounter;
-
-        private bool? IsIDDrawerVisible_
-        {
-            set
-            {
-                IsIDDrawerVisible = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public bool? IsVISADrawerVisible_
-        {
-            set
-            {
-                IsVISADrawerVisible = value;
-                OnPropertyChanged();
-            }
-        }
-
         public Person? CurrentPerson => _gameManager.CurrentPerson;
 
-        public void LoadNextPerson()
+        public async Task LoadNextPerson()
         {
-            CurrentIDCard = _gameManager.CurrentPerson.IDCard;
-            CurrentVISACard = _gameManager.CurrentPerson.VISACard;
+            var person = _gameManager.CurrentPerson;
 
-            CurrentPersonImage = _gameManager.CurrentPerson.ImageData;
-            Errors = 3 - _gameManager.LifesCounter;
-
-            OnPropertyChanged(nameof(CurrentPerson));
-            OnPropertyChanged(nameof(ErrorCountViewModel));
-            OnPropertyChanged(nameof(TurnCount));
-            OnPropertyChanged(nameof(CurrentIDCard));
-            OnPropertyChanged(nameof(CurrentVISACard));
-            OnPropertyChanged(nameof(CurrentPersonImage));
-            OnPropertyChanged(nameof(PersonImage));
-            OnPropertyChanged(nameof(IsIDDrawerVisible_));
-            OnPropertyChanged(nameof(IsVISADrawerVisible_));
-
-            // Caricamento immagine dal campo ImageData
-            if (!string.IsNullOrEmpty(CurrentPerson.ImageData))
+            if (person != null)
             {
-                if (CurrentPerson.ImageData.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+                CurrentIDCard = person.IDCard;
+                CurrentVISACard = person.VISACard;
+                CurrentPersonImage = person.ImageData;
+
+                if (!string.IsNullOrEmpty(CurrentPersonImage))
                 {
-                    PersonImage = ImageSource.FromUri(new Uri(CurrentPerson.ImageData));
+                    if (CurrentPersonImage.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+                    {
+                        PersonImage = ImageSource.FromUri(new Uri(CurrentPersonImage));
+                    }
+                    else
+                    {
+                        PersonImage = ImageSource.FromFile(Path.Combine("Resources", CurrentPersonImage));
+                    }
                 }
                 else
                 {
-                    PersonImage = ImageSource.FromFile("\\Resources\\" + CurrentPerson.ImageData);
+                    PersonImage = null;
                 }
+
+                IsIDDrawerVisible = false;
+                IsVISADrawerVisible = false;
+
+                Errors = 3 - _gameManager.LifesCounter;
+                TurnCount = _gameManager.TurnCounter;
             }
 
-            // Chiude i cassetti ad ogni turno
-            IsIDDrawerVisible = false;
-            IsVISADrawerVisible = false;
+            await Task.CompletedTask;
         }
+
 
         [RelayCommand]
         public async Task OnCorrectPressed()
         {
-            if (_gameManager == null)
-                return;
             _gameManager.Guess(true);
-            LoadNextPerson();
+            await LoadNextPerson();
         }
 
         [RelayCommand]
         public async Task OnWrongPressed()
         {
-            if (_gameManager == null)
-                return;
             _gameManager.Guess(false);
-            LoadNextPerson();
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            await LoadNextPerson();
         }
 
         [RelayCommand]
         public void ToggleIDDrawer()
         {
-            IsIDDrawerVisible_ = !IsIDDrawerVisible;
-            IsVISADrawerVisible_ = !IsIDDrawerVisible;
+            IsIDDrawerVisible = !IsIDDrawerVisible;
+            IsVISADrawerVisible = false;
         }
 
         [RelayCommand]
         public void ToggleVISADrawer()
         {
-            IsVISADrawerVisible_ = !IsVISADrawerVisible;
-            IsIDDrawerVisible_ = !IsVISADrawerVisible;
+            IsVISADrawerVisible = !IsVISADrawerVisible;
+            IsIDDrawerVisible = false;
         }
     }
 }

@@ -32,7 +32,7 @@
                        TextColor="White"
                        FontSize="20"
                        Margin="20,0,0,0" />
-                <Label Text="{Binding Turn}"
+                <Label Text="{Binding TurnCount}"
                        TextColor="LightGreen"
                        FontSize="20"
                        Margin="5,0" />
@@ -95,6 +95,7 @@
                     <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White" />
                     <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White" />
                     <Label Text="{Binding CurrentIDCard.Sex}" TextColor="White" />
+                    <Label Text="{Binding CurrentIDCard.Nationality}" TextColor="White"/>
                 </StackLayout>
             </Frame>
 

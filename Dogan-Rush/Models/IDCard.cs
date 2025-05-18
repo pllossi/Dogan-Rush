@@ -13,20 +13,13 @@
             Sex = sex;
         }
 
-        public string Name;
-        public string Surname;
-
-        public DateOnly EmissionDate;
-        public DateOnly ExpiringDate;
-
-        public string IDcode;
-
-        public DateOnly BirthDate;
-
-        public bool Sex;
-
-        public Countries Nationality;
-
-        public Countries Countries;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public DateOnly BirthDate { get; set; }
+        public string IDcode { get; set; }
+        public DateOnly EmissionDate { get; set; }
+        public DateOnly ExpiringDate { get; set; }
+        public bool Sex { get; set; }
+        public Countries Nationality { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Dogan_Rush.Infrastracture
         {
             try
             {
-                string jsonPath = FindJsonFile("PersonData.json");
+                string? jsonPath = FindJsonFile("PersonData.json");
                 if (jsonPath == null) return nullPerson;
 
                 string json = File.ReadAllText(jsonPath);

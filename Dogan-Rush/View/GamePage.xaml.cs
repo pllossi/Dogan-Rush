@@ -1,4 +1,4 @@
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using Dogan_Rush.ViewModels;
 
 namespace Dogan_Rush.View
@@ -11,8 +11,16 @@ namespace Dogan_Rush.View
         public GamePage()
         {
             InitializeComponent();
-            _viewModel = new GamePageViewModel();  // Initialize the ViewModel
-            BindingContext = _viewModel;  // Bind the ViewModel to the page
+            BindingContext = _viewModel = new GamePageViewModel();
+
+            // Load the first person immediately
+            Loaded += async (_, _) => await _viewModel.LoadNextPerson();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await _viewModel.LoadNextPerson(); // Proper async call to initialize data
         }
 
         [RelayCommand]

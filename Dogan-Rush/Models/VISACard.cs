@@ -13,20 +13,13 @@
             Country = country;
         }
 
-        public string Name;
-
-        public string Surname;
-
-        public DateOnly Birthdate;
-
-        public string VISACode;
-
-        public bool Sex;
-
-        public DateOnly EmissionDate;
-
-        public DateOnly ExpirationDate;
-
-        public Countries Country;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public DateOnly Birthdate { get; set; }
+        public string VISACode { get; set; }
+        public DateOnly EmissionDate { get; set; }
+        public  DateOnly ExpirationDate { get; set; }
+        public bool Sex { get; set; }
+        public Countries Country { get; set; }
     }
 }
