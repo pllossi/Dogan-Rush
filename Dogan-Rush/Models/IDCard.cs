@@ -21,5 +21,6 @@
         public DateOnly ExpiringDate { get; set; }
         public bool Sex { get; set; }
         public Countries Nationality { get; set; }
+        public string SexDisplay => Sex ? "Male" : "Female";
     }
 }

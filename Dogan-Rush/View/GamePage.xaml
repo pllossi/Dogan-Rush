@@ -59,23 +59,36 @@
                 <Button Text="Incorrect"
                     BackgroundColor="Red"
                     Command="{Binding WrongPressedCommand}" />
+
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="Game Date:"
+                        TextColor="White"
+                        FontSize="15" />        
+                    <Label Text="{Binding GameManager.GameDate}"
+                        TextColor="White"
+                        FontSize="15" />
+                </HorizontalStackLayout>
             </StackLayout>
 
             <!-- Drawers -->
             <StackLayout Orientation="Vertical"
-                         HorizontalOptions="Start"
-                         VerticalOptions="Center"
-                         Margin="10,0">
+             HorizontalOptions="Start"
+             VerticalOptions="Center"
+             Margin="10,0"
+             Spacing="10">
+
                 <Button Text="🪪 ID"
-                        Command="{Binding ToggleIDDrawerCommand}"
-                        WidthRequest="100"
-                        BackgroundColor="#444"
-                        TextColor="White" />
+            Command="{Binding ToggleIDDrawerCommand}"
+            WidthRequest="100"
+            BackgroundColor="#444"
+            TextColor="White" />
+
                 <Button Text="🛂 VISA"
-                        Command="{Binding ToggleVISADrawerCommand}"
-                        WidthRequest="100"
-                        BackgroundColor="#444"
-                        TextColor="White" />
+            Command="{Binding ToggleVISADrawerCommand}"
+            WidthRequest="100"
+            BackgroundColor="#444"
+            TextColor="White" />
+
             </StackLayout>
 
             <!-- ID Drawer Popup -->
@@ -87,16 +100,40 @@
                    HorizontalOptions="Start"
                    VerticalOptions="Center"
                    WidthRequest="300">
-                <StackLayout>
-                    <Label Text="{Binding CurrentIDCard.Name}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.Sex}" TextColor="White" />
-                    <Label Text="{Binding CurrentIDCard.Nationality}" TextColor="White"/>
-                </StackLayout>
+                <VerticalStackLayout Spacing="5">
+                    <HorizontalStackLayout>
+                        <Label Text="Name:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Name}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Surname:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Birth Date:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="ID Code:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Emission:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Expiring:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Sex:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.SexDisplay}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Nationality:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Nationality}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
             </Frame>
 
             <!-- VISA Drawer Popup -->
@@ -108,15 +145,36 @@
                    HorizontalOptions="Start"
                    VerticalOptions="Center"
                    WidthRequest="300">
-                <StackLayout>
-                    <Label Text="{Binding CurrentVISACard.Name}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White" />
-                    <Label Text="{Binding CurrentVISACard.Sex}" TextColor="White" />
-                </StackLayout>
+                <VerticalStackLayout Spacing="5">
+                    <HorizontalStackLayout>
+                        <Label Text="Name:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Name}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Surname:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Birth Date:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="VISA Code:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Emission:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Expiration:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Sex:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.SexDisplay}" TextColor="White"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
             </Frame>
         </Grid>
     </Grid>

@@ -9,7 +9,7 @@ namespace Dogan_Rush.Models
 
         private GameStatus _gameStatus = GameStatus.Playing;
 
-        private int nextValueForError = 0; //if the number from the random is lower than this the error will be placed.
+        private int nextValueForError = 50; //if the number from the random is lower than this the error will be placed.
 
         public GameManager()
         {
@@ -54,11 +54,18 @@ namespace Dogan_Rush.Models
             }
         }
 
+        public DateOnly GameDate
+        {
+            get
+            {
+                return _gameDate;
+            }
+        }
+
         public void Guess(bool answer)
         {
             if (answer == isDocumentCorrect)
             {
-                _turnCounter++;
                 NewTurn();
             }
             else
@@ -76,7 +83,7 @@ namespace Dogan_Rush.Models
         public void NewTurn()
         {
             CurrentPerson = _gameGenerator.generate();
-            if (TurnCounter != 0)
+            if (TurnCounter > 1)
             {
                 Random rnd = new Random();
 
