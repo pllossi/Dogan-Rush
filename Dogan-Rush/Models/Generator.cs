@@ -6,7 +6,7 @@ namespace Dogan_Rush.Models
     public class Generator
     {
         private DateOnly _gameDate;
-        private List<PersonData?> a;
+        private List<PersonData> a;
 
         public Generator(DateOnly gameDate)
         {
