@@ -75,7 +75,7 @@ namespace Dogan_Rush.ViewModels
                 IsIDDrawerVisible = false;
                 IsVISADrawerVisible = false;
 
-                Errors = 3 - _gameManager.LifesCounter;
+                Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
             }
 

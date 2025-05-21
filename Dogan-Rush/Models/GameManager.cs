@@ -3,7 +3,7 @@ namespace Dogan_Rush.Models
     public class GameManager
     {
         private int _turnCounter = 0; //the game starts from turn 0
-        private int _lifeCounter = 3; //TODO: implement this in the game logic
+        private int _errorCounter = 0; //TODO: implement this in the game logic
         private DateOnly _gameDate;
         private Generator _gameGenerator;
 
@@ -46,11 +46,11 @@ namespace Dogan_Rush.Models
             }
         }
 
-        public int LifesCounter
+        public int ErrorsCounter
         {
             get
             {
-                return _lifeCounter;
+                return _errorCounter;
             }
         }
 
@@ -70,13 +70,10 @@ namespace Dogan_Rush.Models
             }
             else
             {
-                if (LifesCounter == 1)
-                    _gameStatus = GameStatus.Lose;
-                else
-                {
-                    _lifeCounter--;
-                    NewTurn();
-                }
+                
+                _errorCounter++;
+                NewTurn();
+                
             }
         }
 

@@ -29,16 +29,16 @@ namespace Dogan_Rush.Models
             DateOnly birthDate = GetRandomDateOnly(age, _gameDate);
 
             DateOnly emissionDateVisa = GenerateRandomEmissionDate(_gameDate);
-            DateOnly expirationDateVisa = emissionDateVisa.AddDays(5);
+            DateOnly expirationDateVisa = emissionDateVisa.AddYears(5);
 
             DateOnly emissionDateID = GenerateRandomEmissionDate(_gameDate);
-            DateOnly expirationDateID = GenerateRandomEmissionDate(_gameDate);
+            DateOnly expirationDateID = emissionDateID.AddYears(5);
 
             Countries country = (Countries)rnd.Next(0, 193);
             string code = GenerateRandomCode();
 
             VISACard visa = new VISACard(name, surname, birthDate, code, isMale, emissionDateVisa, expirationDateVisa, country);
-            IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID);
+            IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID,country);
 
             return new Person(name, surname, age, birthDate, id, visa, imageData);
         }

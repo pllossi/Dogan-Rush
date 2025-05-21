@@ -2,7 +2,7 @@
 {
     public class IDCard
     {
-        public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate)
+        public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate,Countries nationality)
         {
             Name = name;
             Surname = surname;
@@ -11,6 +11,7 @@
             ExpiringDate = expirationDate;
             EmissionDate = emissionDate;
             Sex = sex;
+            Nationality = nationality;
         }
 
         public string Name { get; set; }

@@ -12,9 +12,9 @@ namespace Dogan_Rush.View
             BindingContext = new MainPageViewModel();
         }
 
-        private void btnInfo_Clicked(object sender, EventArgs e)
+        private async void btnInfo_Clicked(object sender, EventArgs e)
         {
-            // Mostra istruzioni
+            await Navigation.PushAsync(new Regole());
         }
 
         [RelayCommand]
