@@ -41,11 +41,11 @@
 
         <!-- Bottom Half -->
         <Grid Row="1">
-            <Image Source="bottom_background.jpg"
-                   Aspect="AspectFill"
-                   Opacity="0.4"
-                   HorizontalOptions="Fill"
-                   VerticalOptions="Fill" />
+            <Image Source="sfondo_partebassa.png"	
+            Aspect="AspectFill"
+            Opacity="0.4"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill" />
 
             <!-- Buttons -->
             <StackLayout Orientation="Horizontal"

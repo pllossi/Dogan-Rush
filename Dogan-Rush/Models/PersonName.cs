@@ -4,7 +4,6 @@
     {
         // Nomi Maschili
         Aaron,
-
         Abramo,
         Achille,
         Adamo,
@@ -172,7 +171,6 @@
 
         // Nomi Femminili
         Ada,
-
         Adele,
         Adina,
         Adriana,

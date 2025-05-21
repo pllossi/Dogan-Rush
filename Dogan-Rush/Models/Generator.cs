@@ -16,12 +16,16 @@ namespace Dogan_Rush.Models
 
         public Person generate()
         {
+            PersonName currname;
             PersonData tookData = PersonLoader.GetRandomPerson(a);
 
             Random rnd = new Random();
             string imageData = tookData.imageName;
             int age = rnd.Next(tookData.minAge, tookData.maxAge);
-            PersonName currname = (PersonName)rnd.Next(0, 351);
+            if(tookData.isMale == true)
+                currname = (PersonName)rnd.Next(0, 164);
+            else
+                currname = (PersonName)rnd.Next(163, 350);
             string name = currname.ToString();
             PersonSurname currsurname = (PersonSurname)rnd.Next(0, 188);
             string surname = currsurname.ToString();
