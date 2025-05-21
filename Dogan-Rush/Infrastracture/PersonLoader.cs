@@ -19,7 +19,6 @@ namespace Dogan_Rush.Infrastracture
             }
             catch (Exception ex) when (ex is IOException or JsonException or UnauthorizedAccessException)
             {
-                Console.WriteLine($"Error: {ex.GetType().Name} - {ex.Message}");
                 return nullPerson;
             }
         }
