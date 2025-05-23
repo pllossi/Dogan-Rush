@@ -1,0 +1,34 @@
+name: Update Contributions Chart
+
+on:
+  push:
+    branches:
+      - charts
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install matplotlib requests
+
+      - name: Generate contributions chart
+        run: python generate_contributions_chart.py
+
+      - name: Commit and push chart
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add contributions_chart.png
+          git commit -m "Update contributions chart" || echo "No changes to commit"
+          git push origin charts
