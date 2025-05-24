@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using MauiIcons.FontAwesome.Solid;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
+using Dogan_Rush.ViewModels;
 
 namespace Dogan_Rush
 {
@@ -13,7 +15,7 @@ namespace Dogan_Rush
                 .UseMauiApp<App>()
                 // Initialize the .NET MAUI Community Toolkit by adding the below line of code
                 .UseMauiCommunityToolkit()
-                .UseFontAwesomeSolidMauiIcons()
+                // After initializing the .NET MAUI Community Toolkit, optionally add additional fonts
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,6 +25,8 @@ namespace Dogan_Rush
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton(AudioManager.Current); // Register audio manager
+            
 
             return builder.Build();
         }

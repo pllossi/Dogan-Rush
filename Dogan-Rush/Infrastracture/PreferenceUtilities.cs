@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Dogan_Rush.Infrastracture
 {
-    public static class PreferenceUtilities
+    public static class PreferencesUtilities
     {
         public static void SaveGame(GameManager game)
         {

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Dogan_Rush.Infrastracture;
 using Dogan_Rush.ViewModels;
+using Plugin.Maui.Audio;
 
 namespace Dogan_Rush.View
 {
@@ -8,10 +10,14 @@ namespace Dogan_Rush.View
         // ViewModel to be used in this page
         private GamePageViewModel _viewModel;
 
+        private MusicPlayer _musicPlayer;
+
         public GamePage()
         {
             InitializeComponent();
             BindingContext = _viewModel = new GamePageViewModel();
+            _musicPlayer = new MusicPlayer();
+            _musicPlayer.PlayMusic();
 
             // Load the first person immediately
             Loaded += async (_, _) => await _viewModel.LoadNextPerson();

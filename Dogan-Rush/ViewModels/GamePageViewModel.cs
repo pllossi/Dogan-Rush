@@ -36,9 +36,11 @@ namespace Dogan_Rush.ViewModels
         [ObservableProperty]
         private int turnCount;
 
+        private string nullImageData = "person001.png";
+
         public GamePageViewModel()
         {
-            _gameManager = PreferenceUtilities.GetGame() ?? new GameManager();
+            _gameManager = PreferencesUtilities.GetGame() ?? new GameManager();
             _gameManager.NewTurn();
         }
 
@@ -49,27 +51,34 @@ namespace Dogan_Rush.ViewModels
         public async Task LoadNextPerson()
         {
             var person = _gameManager.CurrentPerson;
+            string? source;
 
             if (person != null)
             {
                 CurrentIDCard = person.IDCard;
                 CurrentVISACard = person.VISACard;
-                CurrentPersonImage = person.ImageData;
 
-                if (!string.IsNullOrEmpty(CurrentPersonImage))
+                if (!string.IsNullOrEmpty(person.ImageData))
                 {
-                    if (CurrentPersonImage.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+                    if (person.ImageData.StartsWith("http", StringComparison.OrdinalIgnoreCase))
                     {
-                        PersonImage = ImageSource.FromUri(new Uri(CurrentPersonImage));
+                        PersonImage = ImageSource.FromUri(new Uri(person.ImageData));
                     }
                     else
                     {
-                        PersonImage = ImageSource.FromFile(Path.Combine("Resources", CurrentPersonImage));
+                        if (File.Exists(person.ImageData) == false)
+                        {
+                            CurrentPersonImage = nullImageData;
+                        }
+                        else
+                        {
+                            CurrentPersonImage = person.ImageData;
+                        }
                     }
                 }
                 else
                 {
-                    PersonImage = null;
+                    CurrentPersonImage = nullImageData;
                 }
 
                 IsIDDrawerVisible = false;
@@ -77,6 +86,8 @@ namespace Dogan_Rush.ViewModels
 
                 Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
+                if(TurnCount%5==0)
+                    PreferencesUtilities.SaveGame(_gameManager);
             }
 
             await Task.CompletedTask;
