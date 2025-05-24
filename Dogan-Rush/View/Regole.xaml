@@ -2,31 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dogan_Rush.View.Regole"
-             Title="Regole">
+             Title="Regole"
+             BackgroundColor="#BEAA7C">
     <VerticalStackLayout>
         <Label
             Text="Regolamento: "
             VerticalOptions="Center"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="26" 
+            TextColor="#443920"/>
         <Label
-            Text="Il gioco consiste nel dover decidere "
+            Text="Il gioco consiste nel dover decidere se una persona può passare la dogana e il tuo compito sarà quello di decidere se passano o no,controllando i loro documenti, confronterai dati e troverai anomalie."
             VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <Label
-            Text="se una persona può passare la dogana"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <Label
-            Text="e il tuo compito sarà quello di decidere se passano o no."
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            FontSize="26"
+            TextColor="#443920"/>
         <Label
             Text="Sarai all'altezza?"
             VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <Button
-            Command="{Binding }"
-            Text="Indietro"
-            Margin="0,0,100,0" />
+            HorizontalOptions="Center"
+            FontSize="26" 
+            TextColor="#443920"/>
     </VerticalStackLayout>
 </ContentPage>
