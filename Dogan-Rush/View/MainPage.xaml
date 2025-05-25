@@ -19,19 +19,39 @@
                AbsoluteLayout.LayoutFlags="All" />
 
         <!-- Pulsante GIOCA -->
-        <Button Text="GIOCA"
-        FontAttributes="Bold"
-        FontSize="20"
-        TextColor="Black"
-        AbsoluteLayout.LayoutBounds="0.5,0.67,350,85"
-        AbsoluteLayout.LayoutFlags="PositionProportional"
-        Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=StartGameClickedCommand}" />
+        <HorizontalStackLayout
+            Spacing="20"
+            AbsoluteLayout.LayoutBounds="0.5,0.67,-1,-1"
+            AbsoluteLayout.LayoutFlags="PositionProportional">
+
+            <!-- Pulsante GIOCA -->
+            <Button Text="GIOCA"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    TextColor="#443920"
+                    BackgroundColor="#BEAA7C"
+                    WidthRequest="180"
+                    HeightRequest="85"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=StartGameClickedCommand}" />
+
+            <!-- Pulsante NUOVA PARTITA -->
+            <Button Text="NUOVA PARTITA"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    TextColor="#443920"
+                    BackgroundColor="#BEAA7C"
+                    WidthRequest="180"
+                    HeightRequest="85"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=NewGameClickedCommand}" />
+
+        </HorizontalStackLayout>
 
         <!-- Pulsante REGOLE -->
         <Button Text="REGOLE"
                 FontAttributes="Bold"
                 FontSize="20"
-                TextColor="Black"
+                TextColor="#443920"
+                BackgroundColor="#BEAA7C"
                 AbsoluteLayout.LayoutBounds="0.5,0.89,350,85"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 Clicked="btnInfo_Clicked" />

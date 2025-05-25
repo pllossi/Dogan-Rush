@@ -2,14 +2,15 @@ namespace Dogan_Rush.Models
 {
     public class GameManager
     {
-        private int _turnCounter = 0; //the game starts from turn 0
-        private int _errorCounter = 0; //TODO: implement this in the game logic
-        private DateOnly _gameDate;
-        private Generator _gameGenerator;
+        public int TurnCounter { get; set; } = 0;
+        public int ErrorsCounter { get; set; } = 0;
+        public DateOnly GameDate { get; set; }
+        public Generator GameGenerator { get; set; }
+        public GameStatus GameStatus { get; set; } = GameStatus.Playing;
+        public int NextValueForError { get; set; } = 50;
 
-        private GameStatus _gameStatus = GameStatus.Playing;
-
-        private int nextValueForError = 50; //if the number from the random is lower than this the error will be placed.
+        public bool IsDocumentCorrect { get; set; }
+        public Person CurrentPerson { get; set; }
 
         public GameManager()
         {
@@ -21,93 +22,47 @@ namespace Dogan_Rush.Models
             Random rand = new Random();
             int randomOffset = rand.Next(range + 1); // +1 to include endDate
 
-            _gameDate = DateOnly.FromDayNumber(start.DayNumber + randomOffset);
-
-            _gameGenerator = new Generator(_gameDate);
-        }
-
-        public bool isDocumentCorrect
-        {
-            get;
-            private set;
-        }
-
-        public Person CurrentPerson
-        {
-            get;
-            private set;
-        }
-
-        public int TurnCounter
-        {
-            get
-            {
-                return _turnCounter;
-            }
-        }
-
-        public int ErrorsCounter
-        {
-            get
-            {
-                return _errorCounter;
-            }
-        }
-
-        public DateOnly GameDate
-        {
-            get
-            {
-                return _gameDate;
-            }
+            GameDate = DateOnly.FromDayNumber(start.DayNumber + randomOffset);
+            GameGenerator = new Generator(GameDate);
         }
 
         public void Guess(bool answer)
         {
-            if (answer == isDocumentCorrect)
-            {
+            if (answer == IsDocumentCorrect)
                 NewTurn();
-            }
             else
             {
-                
-                _errorCounter++;
+                ErrorsCounter++;
                 NewTurn();
-                
             }
         }
 
         public void NewTurn()
         {
-            CurrentPerson = _gameGenerator.generate();
+            CurrentPerson = GameGenerator.generate();
             if (TurnCounter > 1)
             {
                 Random rnd = new Random();
-
                 int randomValue = rnd.Next(0, 100);
 
-                if (randomValue < nextValueForError)
+                if (randomValue < NextValueForError)
                 {
-                    int document = rnd.Next(0, 2); // 0 = IDCard, 1 = VisaCard
-                    isDocumentCorrect = false;
+                    int document = rnd.Next(0, 2);
+                    IsDocumentCorrect = false;
 
                     if (document == 0)
-                    {
-                        IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, _turnCounter);
-                    }
+                        IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, TurnCounter);
                     else
-                    {
-                        VISAErrorInjector.GenerateError(CurrentPerson.VISACard, _turnCounter);
-                    }
+                        VISAErrorInjector.GenerateError(CurrentPerson.VISACard, TurnCounter);
                 }
                 else
                 {
-                    isDocumentCorrect = true;
+                    IsDocumentCorrect = true;
                 }
 
-                nextValueForError = rnd.Next(0, 100);
+                NextValueForError = rnd.Next(0, 100);
             }
-            _turnCounter++;
+            TurnCounter++;
         }
     }
 }

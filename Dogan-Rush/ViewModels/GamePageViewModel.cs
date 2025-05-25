@@ -10,7 +10,7 @@ namespace Dogan_Rush.ViewModels
     public partial class GamePageViewModel : ObservableObject, INotifyPropertyChanged
     {
         
-        private readonly GameManager _gameManager;
+        private readonly GameManager? _gameManager;
 
         [ObservableProperty]
         private IDCard? currentIDCard;
@@ -40,19 +40,22 @@ namespace Dogan_Rush.ViewModels
 
         public GamePageViewModel()
         {
-            _gameManager = PreferencesUtilities.GetGame() ?? new GameManager();
-            _gameManager.NewTurn();
+            _gameManager = PreferencesUtilities.GetGame();
+                if (_gameManager == null)
+                {
+                    _gameManager = new GameManager();
+                    _gameManager.NewTurn();
+                }
         }
 
         public GameManager GameManager => _gameManager;
 
-        public Person? CurrentPerson => _gameManager.CurrentPerson;
+        public Person? CurrentPerson => GameManager.CurrentPerson;
 
         public async Task LoadNextPerson()
         {
             var person = _gameManager.CurrentPerson;
-            string? source;
-
+            
             if (person != null)
             {
                 CurrentIDCard = person.IDCard;
@@ -86,7 +89,7 @@ namespace Dogan_Rush.ViewModels
 
                 Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
-                if(TurnCount%5==0)
+                if(TurnCount%5==0&&TurnCount>1)
                     PreferencesUtilities.SaveGame(_gameManager);
             }
 

@@ -12,9 +12,13 @@ namespace Dogan_Rush.View
 
         private MusicPlayer _musicPlayer;
 
-        public GamePage()
+        public GamePage(bool reset = false)
         {
             InitializeComponent();
+            if (reset)
+            {
+                PreferencesUtilities.ClearGame();
+            }
             BindingContext = _viewModel = new GamePageViewModel();
             _musicPlayer = new MusicPlayer();
             _musicPlayer.PlayMusic();
