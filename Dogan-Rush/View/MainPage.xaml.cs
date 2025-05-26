@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Dogan_Rush.Infrastracture;
 
 using Dogan_Rush.ViewModels;
 

@@ -7,22 +7,36 @@ namespace Dogan_Rush.Models
     {
         private DateOnly _gameDate;
         private List<PersonData> a;
+        private Queue<PersonData?> _previousData;
 
         public Generator(DateOnly gameDate)
         {
             _gameDate = gameDate;
             a = PersonLoader.LoadPeopleData();
+            _previousData = new Queue<PersonData?>(5); // Store up to 5 previous PersonData
         }
 
         public Person generate()
         {
+            PersonData tookData;
             PersonName currname;
-            PersonData tookData = PersonLoader.GetRandomPerson(a);
+            do
+            {
+                tookData = PersonLoader.GetRandomPerson(a);
+            }
+            while (_previousData.Count == 5 && _previousData.Contains(tookData) == false);
+
+            _previousData.Enqueue(tookData);
+
+            if (_previousData.Count > 5)
+            {
+                _previousData.Dequeue(); // Remove the oldest data if we exceed the limit
+            }
 
             Random rnd = new Random();
             string imageData = tookData.imageName;
             int age = rnd.Next(tookData.minAge, tookData.maxAge);
-            if(tookData.isMale == true)
+            if (tookData.isMale == true)
                 currname = (PersonName)rnd.Next(0, 164);
             else
                 currname = (PersonName)rnd.Next(163, 350);
@@ -42,7 +56,7 @@ namespace Dogan_Rush.Models
             string code = GenerateRandomCode();
 
             VISACard visa = new VISACard(name, surname, birthDate, code, isMale, emissionDateVisa, expirationDateVisa, country);
-            IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID,country);
+            IDCard id = new IDCard(name, surname, birthDate, code, isMale, emissionDateID, expirationDateID, country);
 
             return new Person(name, surname, age, birthDate, id, visa, imageData);
         }

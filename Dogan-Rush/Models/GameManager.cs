@@ -1,3 +1,5 @@
+using Dogan_Rush.Models;
+
 namespace Dogan_Rush.Models
 {
     public class GameManager
@@ -14,8 +16,8 @@ namespace Dogan_Rush.Models
 
         public GameManager()
         {
-            DateOnly start = new DateOnly(1960, 1, 1);
-            DateOnly end = new DateOnly(1980, 12, 31);
+            DateOnly start = new DateOnly(1959, 1, 1);
+            DateOnly end = new DateOnly(1989, 12, 31);
 
             int range = end.DayNumber - start.DayNumber;
 
@@ -51,9 +53,9 @@ namespace Dogan_Rush.Models
                     IsDocumentCorrect = false;
 
                     if (document == 0)
-                        IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, TurnCounter);
+                        IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, TurnCounter, GameDate);
                     else
-                        VISAErrorInjector.GenerateError(CurrentPerson.VISACard, TurnCounter);
+                        VISAErrorInjector.GenerateError(CurrentPerson.VISACard, TurnCounter, GameDate);
                 }
                 else
                 {

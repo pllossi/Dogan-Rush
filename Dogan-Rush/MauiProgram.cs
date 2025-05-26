@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Maui;
-using MauiIcons.FontAwesome.Solid;
 using Microsoft.Extensions.Logging;
 using Plugin.Maui.Audio;
-using Dogan_Rush.ViewModels;
 
 namespace Dogan_Rush
 {
@@ -26,7 +24,6 @@ namespace Dogan_Rush
             builder.Logging.AddDebug();
 #endif
             builder.Services.AddSingleton(AudioManager.Current); // Register audio manager
-            
 
             return builder.Build();
         }

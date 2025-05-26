@@ -43,7 +43,6 @@
                     WidthRequest="180"
                     HeightRequest="85"
                     Command="{Binding Source={RelativeSource AncestorType={x:Type views:MainPage}}, Path=NewGameClickedCommand}" />
-
         </HorizontalStackLayout>
 
         <!-- Pulsante REGOLE -->

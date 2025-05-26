@@ -1,33 +1,26 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Plugin.Maui.Audio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Plugin.Maui.Audio;
 
 namespace Dogan_Rush.Infrastracture
 {
-    public  class MusicPlayer
+    public class MusicPlayer
     {
         private readonly IAudioManager _audioManager;
         private IAudioPlayer? _player;
 
         public MusicPlayer(IAudioManager audioManager = null)
         {
-            if(audioManager == null)
+            if (audioManager == null)
             {
                 audioManager = new AudioManager();
                 _audioManager = audioManager;
-            }else
+            }
+            else
             {
                 _audioManager = audioManager;
             }
-            
         }
 
-       private bool _isPlaying;
+        private bool _isPlaying;
 
         public void PlayMusic()
         {

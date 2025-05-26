@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Dogan_Rush.Infrastracture;
 using Dogan_Rush.ViewModels;
-using Plugin.Maui.Audio;
 
 namespace Dogan_Rush.View
 {
@@ -30,6 +29,7 @@ namespace Dogan_Rush.View
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
             await _viewModel.LoadNextPerson(); // Proper async call to initialize data
         }
 

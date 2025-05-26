@@ -3,13 +3,11 @@ using CommunityToolkit.Mvvm.Input;
 using Dogan_Rush.Infrastracture;
 using Dogan_Rush.Models;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Dogan_Rush.ViewModels
 {
     public partial class GamePageViewModel : ObservableObject, INotifyPropertyChanged
     {
-        
         private readonly GameManager? _gameManager;
 
         [ObservableProperty]
@@ -41,11 +39,11 @@ namespace Dogan_Rush.ViewModels
         public GamePageViewModel()
         {
             _gameManager = PreferencesUtilities.GetGame();
-                if (_gameManager == null)
-                {
-                    _gameManager = new GameManager();
-                    _gameManager.NewTurn();
-                }
+            if (_gameManager == null)
+            {
+                _gameManager = new GameManager();
+                _gameManager.NewTurn();
+            }
         }
 
         public GameManager GameManager => _gameManager;
@@ -55,7 +53,7 @@ namespace Dogan_Rush.ViewModels
         public async Task LoadNextPerson()
         {
             var person = _gameManager.CurrentPerson;
-            
+
             if (person != null)
             {
                 CurrentIDCard = person.IDCard;
@@ -89,13 +87,12 @@ namespace Dogan_Rush.ViewModels
 
                 Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
-                if(TurnCount%5==0&&TurnCount>1)
+                if (TurnCount % 5 == 0 && TurnCount > 1)
                     PreferencesUtilities.SaveGame(_gameManager);
             }
 
             await Task.CompletedTask;
         }
-
 
         [RelayCommand]
         public async Task OnCorrectPressed()

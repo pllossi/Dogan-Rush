@@ -9,19 +9,19 @@
             Text="Regolamento: "
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            FontSize="26" 
-            TextColor="#443920"/>
+            FontSize="26"
+            TextColor="#443920" />
         <Label
             Text="Il gioco consiste nel dover decidere se una persona può passare la dogana e il tuo compito sarà quello di decidere se passano o no,controllando i loro documenti, confronterai dati e troverai anomalie."
             VerticalOptions="Center"
-            HorizontalOptions="Center" 
+            HorizontalOptions="Center"
             FontSize="26"
-            TextColor="#443920"/>
+            TextColor="#443920" />
         <Label
             Text="Sarai all'altezza?"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            FontSize="26" 
-            TextColor="#443920"/>
+            FontSize="26"
+            TextColor="#443920" />
     </VerticalStackLayout>
 </ContentPage>
