@@ -16,7 +16,24 @@
                    Aspect="AspectFill"
                    Opacity="0.4"
                    HorizontalOptions="Fill"
-                   VerticalOptions="Fill" />
+                   VerticalOptions="Fill"
+                   />
+
+            <Frame BackgroundColor="#222"
+           Padding="15"
+           CornerRadius="10"
+           HasShadow="True"
+           IsVisible="{Binding IsMessageVisible}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           ZIndex="1000">
+                <Label Text="{Binding MessageText}"
+               TextColor="White"
+               FontSize="20"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+            </Frame>
+
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center"
                          VerticalOptions="Start"

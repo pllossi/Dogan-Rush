@@ -34,6 +34,13 @@ namespace Dogan_Rush.ViewModels
         [ObservableProperty]
         private int turnCount;
 
+        [ObservableProperty]
+        private string? messageText;
+
+        [ObservableProperty]
+        private bool isMessageVisible;
+
+
         private string nullImageData = "person001.png";
 
         public GamePageViewModel()
@@ -98,6 +105,18 @@ namespace Dogan_Rush.ViewModels
         public async Task OnCorrectPressed()
         {
             _gameManager.Guess(true);
+            if(_gameManager.GameStatus == GameStatus.Lose)
+            {
+                ShowMessage("Hai Perso");
+                PreferencesUtilities.ClearGame();
+                return;
+            }
+            else if (_gameManager.GameStatus == GameStatus.Win)
+            {
+                ShowMessage("Congratulations! You won the game.");
+                PreferencesUtilities.ClearGame();
+                return;
+            }
             await LoadNextPerson();
         }
 
@@ -105,6 +124,18 @@ namespace Dogan_Rush.ViewModels
         public async Task OnWrongPressed()
         {
             _gameManager.Guess(false);
+            if(_gameManager.GameStatus == GameStatus.Lose)
+            {
+                ShowMessage("Hai Perso");
+                PreferencesUtilities.ClearGame();
+                return;
+            }
+            else if (_gameManager.GameStatus == GameStatus.Win)
+            {
+                ShowMessage("Congratulations! You won the game.");
+                PreferencesUtilities.ClearGame();
+                return;
+            }
             await LoadNextPerson();
         }
 
@@ -121,5 +152,22 @@ namespace Dogan_Rush.ViewModels
             IsVISADrawerVisible = !IsVISADrawerVisible;
             IsIDDrawerVisible = false;
         }
+
+        public async void ShowMessage(string text)
+        {
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                MessageText = text;
+                IsMessageVisible = true;
+            });
+
+            await Task.Delay(2000);
+
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                IsMessageVisible = false;
+            });
+        }
+
     }
 }
