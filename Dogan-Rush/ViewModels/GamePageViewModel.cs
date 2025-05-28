@@ -41,7 +41,7 @@ namespace Dogan_Rush.ViewModels
         private bool isMessageVisible;
 
 
-        private string nullImageData = "person001.png";
+        private string _nullImageData = "person001.png";
 
         public GamePageViewModel()
         {
@@ -59,34 +59,33 @@ namespace Dogan_Rush.ViewModels
 
         public async Task LoadNextPerson()
         {
-            var person = _gameManager.CurrentPerson;
-
-            if (person != null)
+            
+            if (_gameManager.CurrentPerson != null)
             {
-                CurrentIDCard = person.IDCard;
-                CurrentVISACard = person.VISACard;
+                CurrentIDCard = _gameManager.CurrentPerson.IDCard;
+                CurrentVISACard = _gameManager.CurrentPerson.VISACard;
 
-                if (!string.IsNullOrEmpty(person.ImageData))
+                if (!string.IsNullOrEmpty(_gameManager.CurrentPerson.ImageData))
                 {
-                    if (person.ImageData.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+                    if (_gameManager.CurrentPerson.ImageData.StartsWith("http", StringComparison.OrdinalIgnoreCase))
                     {
-                        PersonImage = ImageSource.FromUri(new Uri(person.ImageData));
+                        PersonImage = ImageSource.FromUri(new Uri(_gameManager.CurrentPerson.ImageData));
                     }
                     else
                     {
-                        if (File.Exists(person.ImageData) == false)
+                        if (File.Exists(_gameManager.CurrentPerson.ImageData) == true)
                         {
-                            CurrentPersonImage = nullImageData;
+                            CurrentPersonImage = _nullImageData;
                         }
                         else
                         {
-                            CurrentPersonImage = person.ImageData;
+                            CurrentPersonImage = _gameManager.CurrentPerson.ImageData;
                         }
                     }
                 }
                 else
                 {
-                    CurrentPersonImage = nullImageData;
+                    CurrentPersonImage = _nullImageData;
                 }
 
                 IsIDDrawerVisible = false;
