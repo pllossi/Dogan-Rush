@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dogan_Rush.View.Regole"
+             x:Class="Dogan_Rush.View.Rules"
              Title="Regole"
              BackgroundColor="#BEAA7C">
     <VerticalStackLayout>
@@ -12,10 +12,11 @@
             FontSize="26"
             TextColor="#443920" />
         <Label
-            Text="Il gioco consiste nel dover decidere se una persona può passare la dogana e il tuo compito sarà quello di decidere se passano o no,controllando i loro documenti, confronterai dati e troverai anomalie."
+            Text="Il gioco consiste nel dover decidere se una persona può passare la dogana e il tuo compito sarà quello di decidere se passano o no,controllando i loro documenti, confronterai dati e troverai anomalie. Hai tre vite (errori) prima di perdere la partita. "
             VerticalOptions="Center"
             HorizontalOptions="Center"
             FontSize="26"
+            LineHeight="2"
             TextColor="#443920" />
         <Label
             Text="Sarai all'altezza?"

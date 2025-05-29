@@ -89,7 +89,7 @@ namespace Dogan_Rush.Models
 
                     case nameof(id.Sex):
                         // Flip sex only if difficulty allows and random chance
-                        if (difficulty >= 2 && Chance(50))
+                        if (difficulty <= 2 && Chance(50))
                         {
                             id.Sex = !id.Sex;
                         }

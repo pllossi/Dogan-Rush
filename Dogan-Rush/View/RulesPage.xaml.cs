@@ -1,8 +1,8 @@
 namespace Dogan_Rush.View;
 
-public partial class Regole : ContentPage
+public partial class Rules : ContentPage
 {
-    public Regole()
+    public Rules()
     {
         InitializeComponent();
     }

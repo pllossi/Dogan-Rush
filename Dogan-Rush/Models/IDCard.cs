@@ -2,7 +2,7 @@
 {
     public class IDCard
     {
-        public IDCard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate, Countries nationality)
+        public IDCard(string name, string surname, DateOnly birthdate, string code, bool isMale, DateOnly emissionDate, DateOnly expirationDate, Countries nationality)
         {
             Name = name;
             Surname = surname;
@@ -10,8 +10,15 @@
             IDcode = code;
             ExpiringDate = expirationDate;
             EmissionDate = emissionDate;
-            Sex = sex;
+            Sex = isMale;
             Nationality = nationality;
+            if (isMale)
+            {
+                SexDisplay = "Male";
+            }else
+            {
+                SexDisplay = "Female";
+            }
         }
 
         public string Name { get; set; }
@@ -22,6 +29,6 @@
         public DateOnly ExpiringDate { get; set; }
         public bool Sex { get; set; }
         public Countries Nationality { get; set; }
-        public string SexDisplay => Sex ? "Male" : "Female";
+        public string SexDisplay {  get; set; }
     }
 }

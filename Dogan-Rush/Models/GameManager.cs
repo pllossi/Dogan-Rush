@@ -40,7 +40,7 @@ public class GameManager
         {
             ErrorsCounter++;
             Lives--;
-            if (Lives <= 0)
+            if (Lives < 0)
             {
                 GameStatus = GameStatus.Lose;
                 return;

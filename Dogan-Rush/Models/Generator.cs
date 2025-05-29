@@ -24,7 +24,7 @@ namespace Dogan_Rush.Models
             {
                 tookData = PersonLoader.GetRandomPerson(a);
             }
-            while (_previousData.Count == 5 && _previousData.Contains(tookData) == false);
+            while (_previousData.Contains(tookData) == true);
 
             _previousData.Enqueue(tookData);
 

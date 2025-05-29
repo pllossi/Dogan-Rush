@@ -14,7 +14,7 @@ namespace Dogan_Rush.View
 
         private async void btnInfo_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Regole());
+            await Navigation.PushAsync(new Rules());
         }
 
         [RelayCommand]

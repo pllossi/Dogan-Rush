@@ -41,7 +41,7 @@ namespace Dogan_Rush.ViewModels
         private bool isMessageVisible;
 
 
-        private string _nullImageData = "person001.png";
+        private string _nullImageData = "person01.png";
 
         public GamePageViewModel()
         {
@@ -93,7 +93,7 @@ namespace Dogan_Rush.ViewModels
 
                 Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
-                if (TurnCount % 5 == 0 && TurnCount > 1)
+                if (TurnCount % 3 == 0 && TurnCount > 1)
                     PreferencesUtilities.SaveGame(_gameManager);
             }
 

@@ -2,7 +2,7 @@
 {
     public class VISACard
     {
-        public VISACard(string name, string surname, DateOnly birthdate, string code, bool sex, DateOnly emissionDate, DateOnly expirationDate, Countries country)
+        public VISACard(string name, string surname, DateOnly birthdate, string code, bool isMale, DateOnly emissionDate, DateOnly expirationDate, Countries country)
         {
             Name = name;
             Surname = surname;
@@ -11,6 +11,14 @@
             this.ExpirationDate = expirationDate;
             this.EmissionDate = emissionDate;
             Country = country;
+            if (isMale)
+            {
+                SexDisplay = "Male";
+            }
+            else
+            {
+                SexDisplay = "Female";
+            }
         }
 
         public string Name { get; set; }
@@ -21,6 +29,6 @@
         public DateOnly ExpirationDate { get; set; }
         public bool Sex { get; set; }
         public Countries Country { get; set; }
-        public string SexDisplay => Sex ? "Male" : "Female";
+        public string SexDisplay {  get; set; }
     }
 }
