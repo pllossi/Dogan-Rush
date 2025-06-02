@@ -14,11 +14,11 @@
         <Grid Row="0">
             <Image Source="{Binding CurrentPersonImage}"
                    Aspect="AspectFill"
-                   Opacity="0.4"
+                   Opacity="0.8"
                    HorizontalOptions="Fill"
-                   VerticalOptions="Fill"
-                   />
+                   VerticalOptions="Fill" />
 
+            
             <Frame BackgroundColor="#222"
            Padding="15"
            CornerRadius="10"
@@ -38,7 +38,8 @@
                          HorizontalOptions="Center"
                          VerticalOptions="Start"
                          Margin="10">
-                <Label Text="Errori:"
+                
+                    <Label Text="Errori:"
                        TextColor="White"
                        FontSize="20" />
                 <Label Text="{Binding Errors}"
@@ -56,11 +57,13 @@
             </StackLayout>
         </Grid>
 
+
+
         <!-- Bottom Half -->
-        <Grid Row="1">
-            <Image Source="sfondo_partebassa.png"
+        <Grid Row="2">
+            <Image Source="sfondo_partebassa.png"	
             Aspect="AspectFill"
-            Opacity="0.4"
+            Opacity="0.8"
             HorizontalOptions="Fill"
             VerticalOptions="Fill" />
 
@@ -68,7 +71,9 @@
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Start"
                          VerticalOptions="Start"
-                         Margin="10">
+                         Margin="10"
+                         Spacing="5">
+                
                 <Button Text="Correct"
                     BackgroundColor="Green"
                     Command="{Binding CorrectPressedCommand}" />
@@ -77,14 +82,12 @@
                     BackgroundColor="Red"
                     Command="{Binding WrongPressedCommand}" />
 
-                <HorizontalStackLayout Spacing="5">
-                    <Label Text="Game Date:"
-                        TextColor="White"
-                        FontSize="15" />
+                <Frame CornerRadius="12" BackgroundColor="#F5EEDC" Padding="20" HasShadow="True">
                     <Label Text="{Binding GameManager.GameDate}"
-                        TextColor="White"
+                        TextColor="#3B2F1D"
                         FontSize="15" />
-                </HorizontalStackLayout>
+                </Frame>
+
             </StackLayout>
 
             <!-- Drawers -->
@@ -105,6 +108,7 @@
             WidthRequest="100"
             BackgroundColor="#444"
             TextColor="White" />
+
             </StackLayout>
 
             <!-- ID Drawer Popup -->
@@ -112,42 +116,42 @@
                    BackgroundColor="#222"
                    CornerRadius="10"
                    Padding="10"
-                   Margin="120,0,0,100"
+                   Margin="120,0,0,-100"
                    HorizontalOptions="Start"
                    VerticalOptions="Center"
                    WidthRequest="300">
                 <VerticalStackLayout Spacing="5">
                     <HorizontalStackLayout>
-                        <Label Text="Name:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.Name}" TextColor="White" />
+                        <Label Text="Name:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Name}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Surname:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White" />
+                        <Label Text="Surname:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Surname}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Birth Date:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White" />
+                        <Label Text="Birth Date:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.BirthDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="ID Code:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White" />
+                        <Label Text="ID Code:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.IDcode}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Emission:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White" />
+                        <Label Text="Emission:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.EmissionDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Expiring:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White" />
+                        <Label Text="Expiring:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.ExpiringDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Sex:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.SexDisplay}" TextColor="White" />
+                        <Label Text="Sex:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.SexDisplay}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Nationality:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentIDCard.Nationality}" TextColor="White" />
+                        <Label Text="Nationality:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentIDCard.Nationality}" TextColor="White"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Frame>
@@ -157,42 +161,42 @@
                    BackgroundColor="#222"
                    CornerRadius="10"
                    Padding="10"
-                   Margin="120,100,0,0"
+                   Margin="120,0,0,-100"
                    HorizontalOptions="Start"
                    VerticalOptions="Center"
                    WidthRequest="300">
                 <VerticalStackLayout Spacing="5">
                     <HorizontalStackLayout>
-                        <Label Text="Name:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.Name}" TextColor="White" />
+                        <Label Text="Name:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Name}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Surname:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White" />
+                        <Label Text="Surname:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Surname}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Birth Date:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White" />
+                        <Label Text="Birth Date:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Birthdate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="VISA Code:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White" />
+                        <Label Text="VISA Code:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.VISACode}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Emission:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White" />
+                        <Label Text="Emission:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Expiration:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White" />
+                        <Label Text="Expiration:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Sex:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.SexDisplay}" TextColor="White" />
+                        <Label Text="Sex:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.SexDisplay}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Country:" TextColor="Gray" />
-                        <Label Text="{Binding CurrentVISACard.Country}" TextColor="White" />
+                        <Label Text="Country:" TextColor="Gray"/>
+                        <Label Text="{Binding CurrentVISACard.Country}" TextColor="White"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Frame>

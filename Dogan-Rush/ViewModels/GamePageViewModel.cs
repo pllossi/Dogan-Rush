@@ -3,89 +3,60 @@ using CommunityToolkit.Mvvm.Input;
 using Dogan_Rush.Infrastracture;
 using Dogan_Rush.Models;
 using System.ComponentModel;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Dogan_Rush.ViewModels
 {
     public partial class GamePageViewModel : ObservableObject, INotifyPropertyChanged
     {
-        private readonly GameManager? _gameManager;
+        private readonly GameManager _gameManager;
+        private readonly string nullImageData = "person001.png";
+        private bool _isFirstLoad = true;
 
-        [ObservableProperty]
-        private IDCard? currentIDCard;
-
-        [ObservableProperty]
-        private VISACard? currentVISACard;
-
-        [ObservableProperty]
-        private string? currentPersonImage;
-
-        [ObservableProperty]
-        private ImageSource? personImage;
-
-        [ObservableProperty]
-        private bool isIDDrawerVisible;
-
-        [ObservableProperty]
-        private bool isVISADrawerVisible;
-
-        [ObservableProperty]
-        private int errors;
-
-        [ObservableProperty]
-        private int turnCount;
-
+        [ObservableProperty] private IDCard? currentIDCard;
+        [ObservableProperty] private VISACard? currentVISACard;
+        [ObservableProperty] private string? currentPersonImage;
+        [ObservableProperty] private ImageSource? personImage;
+        [ObservableProperty] private bool isIDDrawerVisible;
+        [ObservableProperty] private bool isVISADrawerVisible;
+        [ObservableProperty] private int errors;
+        [ObservableProperty] private int turnCount;
+        [ObservableProperty] private bool _errorShow = false;
         [ObservableProperty]
         private string? messageText;
 
         [ObservableProperty]
         private bool isMessageVisible;
 
-
-        private string _nullImageData = "person01.png";
-
         public GamePageViewModel()
         {
-            _gameManager = PreferencesUtilities.GetGame();
-            if (_gameManager == null)
-            {
-                _gameManager = new GameManager();
+            _gameManager = PreferencesUtilities.GetGame() ?? new GameManager();
+            if (_gameManager.CurrentPerson == null)
                 _gameManager.NewTurn();
-            }
         }
 
         public GameManager GameManager => _gameManager;
-
-        public Person? CurrentPerson => GameManager.CurrentPerson;
+        public Person? CurrentPerson => _gameManager.CurrentPerson;
 
         public async Task LoadNextPerson()
         {
-            
-            if (_gameManager.CurrentPerson != null)
+            var person = _gameManager.CurrentPerson;
+            if (person != null)
             {
-                CurrentIDCard = _gameManager.CurrentPerson.IDCard;
-                CurrentVISACard = _gameManager.CurrentPerson.VISACard;
+                CurrentIDCard = person.IDCard;
+                CurrentVISACard = person.VISACard;
 
-                if (!string.IsNullOrEmpty(_gameManager.CurrentPerson.ImageData))
+                if (!string.IsNullOrWhiteSpace(person.ImageData))
                 {
-                    if (_gameManager.CurrentPerson.ImageData.StartsWith("http", StringComparison.OrdinalIgnoreCase))
-                    {
-                        PersonImage = ImageSource.FromUri(new Uri(_gameManager.CurrentPerson.ImageData));
-                    }
+                    if (person.ImageData.StartsWith("http", System.StringComparison.OrdinalIgnoreCase))
+                        PersonImage = ImageSource.FromUri(new Uri(person.ImageData));
                     else
-                    {
-                        if (File.Exists(_gameManager.CurrentPerson.ImageData) == true)
-                        {
-                            CurrentPersonImage = _nullImageData;
-                        }
-                        else
-                        {
-                            CurrentPersonImage = _gameManager.CurrentPerson.ImageData;
-                        }
-                    }
+                        CurrentPersonImage = !File.Exists(person.ImageData) ? person.ImageData : nullImageData;
                 }
                 else
                 {
-                    CurrentPersonImage = _nullImageData;
+                    CurrentPersonImage = nullImageData;
                 }
 
                 IsIDDrawerVisible = false;
@@ -93,7 +64,9 @@ namespace Dogan_Rush.ViewModels
 
                 Errors = _gameManager.ErrorsCounter;
                 TurnCount = _gameManager.TurnCounter;
-                if (TurnCount % 3 == 0 && TurnCount > 1)
+                
+
+                if (TurnCount % 5 == 0 && TurnCount > 1)
                     PreferencesUtilities.SaveGame(_gameManager);
             }
 
@@ -103,8 +76,23 @@ namespace Dogan_Rush.ViewModels
         [RelayCommand]
         public async Task OnCorrectPressed()
         {
-            _gameManager.Guess(true);
-            if(_gameManager.GameStatus == GameStatus.Lose)
+           
+            
+
+            if(_gameManager.IsDocumentCorrect == true)
+            {
+
+                ErrorShow = true;
+                OnPropertyChanged(nameof(ErrorShow));
+                await Task.Delay(3000);
+            }
+            else
+            {
+                ErrorShow = false;
+                OnPropertyChanged(nameof(ErrorShow));
+            }
+
+            if (_gameManager.GameStatus == GameStatus.Lose)
             {
                 ShowMessage("Hai Perso");
                 PreferencesUtilities.ClearGame();
@@ -116,14 +104,30 @@ namespace Dogan_Rush.ViewModels
                 PreferencesUtilities.ClearGame();
                 return;
             }
+
+            ErrorShow = false;
+            _gameManager.Guess(true);
             await LoadNextPerson();
+            
         }
 
         [RelayCommand]
         public async Task OnWrongPressed()
         {
-            _gameManager.Guess(false);
-            if(_gameManager.GameStatus == GameStatus.Lose)
+            
+
+            if (_gameManager.IsDocumentCorrect == true)
+            {
+                ErrorShow = true;
+                OnPropertyChanged(nameof(ErrorShow));
+            }
+            else
+            {
+                ErrorShow = false;
+                OnPropertyChanged(nameof(ErrorShow));
+            }
+
+            if (_gameManager.GameStatus == GameStatus.Lose)
             {
                 ShowMessage("Hai Perso");
                 PreferencesUtilities.ClearGame();
@@ -135,12 +139,16 @@ namespace Dogan_Rush.ViewModels
                 PreferencesUtilities.ClearGame();
                 return;
             }
+
+            ErrorShow = false;
+            _gameManager.Guess(false);
             await LoadNextPerson();
         }
 
         [RelayCommand]
         public void ToggleIDDrawer()
         {
+            
             IsIDDrawerVisible = !IsIDDrawerVisible;
             IsVISADrawerVisible = false;
         }
@@ -148,6 +156,7 @@ namespace Dogan_Rush.ViewModels
         [RelayCommand]
         public void ToggleVISADrawer()
         {
+           
             IsVISADrawerVisible = !IsVISADrawerVisible;
             IsIDDrawerVisible = false;
         }

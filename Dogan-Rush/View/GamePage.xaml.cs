@@ -30,8 +30,12 @@ namespace Dogan_Rush.View
         {
             base.OnAppearing();
 
-            await _viewModel.LoadNextPerson(); // Proper async call to initialize data
+            if (BindingContext is GamePageViewModel vm)
+            {
+                await vm.LoadNextPerson();
+            }
         }
+
 
         [RelayCommand]
         private async void OnCorrectClicked()
@@ -46,5 +50,19 @@ namespace Dogan_Rush.View
             await _viewModel.OnWrongPressed();
             // Call the Incorrect method in the ViewModel
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            var viewModel = BindingContext as GamePageViewModel;
+
+            if (viewModel?.GameManager != null)
+            {
+                PreferencesUtilities.SaveGame(viewModel.GameManager);
+            }
+        }
+
+
     }
 }

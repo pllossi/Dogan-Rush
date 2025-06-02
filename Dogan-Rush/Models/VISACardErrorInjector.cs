@@ -90,7 +90,7 @@ namespace Dogan_Rush.Models
 
                     case nameof(visa.Sex):
                         // Flip sex with some chance based on difficulty
-                        if (Chance(50)&&difficulty<=2)
+                        if (Chance(50) && difficulty <= 2)
                             visa.Sex = !visa.Sex;
                         break;
 

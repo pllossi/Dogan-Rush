@@ -15,7 +15,8 @@
             if (isMale)
             {
                 SexDisplay = "Male";
-            }else
+            }
+            else
             {
                 SexDisplay = "Female";
             }
@@ -29,6 +30,6 @@
         public DateOnly ExpiringDate { get; set; }
         public bool Sex { get; set; }
         public Countries Nationality { get; set; }
-        public string SexDisplay {  get; set; }
+        public string SexDisplay { get; set; }
     }
 }

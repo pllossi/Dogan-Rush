@@ -13,6 +13,7 @@ public class GameManager
     public bool IsDocumentCorrect { get; set; }
     public Person CurrentPerson { get; set; }
 
+
     public GameManager()
     {
         DateOnly start = new DateOnly(1959, 1, 1);
@@ -40,7 +41,7 @@ public class GameManager
         {
             ErrorsCounter++;
             Lives--;
-            if (Lives < 0)
+            if (Lives <= 0)
             {
                 GameStatus = GameStatus.Lose;
                 return;
@@ -63,13 +64,18 @@ public class GameManager
                 IsDocumentCorrect = false;
 
                 if (document == 0)
-                    IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, TurnCounter, GameDate);
+                {
+                     IDCardErrorInjector.GenerateError(CurrentPerson.IDCard, TurnCounter, GameDate);
+                }
                 else
-                    VISAErrorInjector.GenerateError(CurrentPerson.VISACard, TurnCounter, GameDate);
+                {
+                     VISAErrorInjector.GenerateError(CurrentPerson.VISACard, TurnCounter, GameDate);
+                }
             }
             else
             {
                 IsDocumentCorrect = true;
+                
             }
 
             NextValueForError = rnd.Next(0, 100);

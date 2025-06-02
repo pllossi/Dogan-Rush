@@ -1,6 +1,5 @@
 ﻿using Dogan_Rush.Models;
 using System.Text.Json;
-using System;
 
 namespace Dogan_Rush.Infrastracture
 {
@@ -11,12 +10,10 @@ namespace Dogan_Rush.Infrastracture
 
         public static List<PersonData> LoadPeopleData()
         {
-            
-                using var stream = FileSystem.OpenAppPackageFileAsync("PersonData.json").Result;
-                using var reader = new StreamReader(stream);
-                string json = reader.ReadToEnd();
-                return JsonSerializer.Deserialize<List<PersonData>>(json) ?? nullPerson;
-            
+            using var stream = FileSystem.OpenAppPackageFileAsync("PersonData.json").Result;
+            using var reader = new StreamReader(stream);
+            string json = reader.ReadToEnd();
+            return JsonSerializer.Deserialize<List<PersonData>>(json) ?? nullPerson;
         }
 
         public static PersonData? GetRandomPerson(List<PersonData> people)
