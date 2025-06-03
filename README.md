@@ -17,7 +17,6 @@ Dogan-Rush nasce dall’idea di creare un simulatore realistico in cui il giocat
     - Scaricare il file apk
     - Installarlo
     - Divertitevi!
-## Come si gioca
 
 ## Collaboratori
 
