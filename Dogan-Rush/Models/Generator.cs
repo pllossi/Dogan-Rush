@@ -13,7 +13,7 @@ namespace Dogan_Rush.Models
         {
             _gameDate = gameDate;
             a = PersonLoader.LoadPeopleData();
-            _previousData = new Queue<PersonData?>(5); // Store up to 5 previous PersonData
+            _previousData = new Queue<PersonData?>(8); // Store up to 5 previous PersonData
         }
 
         public Person generate()

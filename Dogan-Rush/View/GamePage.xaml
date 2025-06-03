@@ -187,7 +187,7 @@
                         <Label Text="{Binding CurrentVISACard.EmissionDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Expiration:" TextColor="Gray"/>
+                        <Label Text="Expiring:" TextColor="Gray"/>
                         <Label Text="{Binding CurrentVISACard.ExpirationDate}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
@@ -195,7 +195,7 @@
                         <Label Text="{Binding CurrentVISACard.SexDisplay}" TextColor="White"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <Label Text="Country:" TextColor="Gray"/>
+                        <Label Text="Country Emitter:" TextColor="Gray"/>
                         <Label Text="{Binding CurrentVISACard.Country}" TextColor="White"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
