@@ -22,7 +22,7 @@ Dogan-Rush nasce dall’idea di creare un simulatore realistico in cui il giocat
 
 | Ruolo             | Nome               | Tag Git                |
 |:------------------|:-------------------|:-----------------------| 
-| Responsabile Git  | Boschi Filippo     |<@pllossi>              |
-| Responsabile MVVM | Cesare Di Masi     | <@Cesare-Di-Masi>      |
-| Responsabile View | Gianluca Vernocchi | <@Gianluca-vernocchi>  |
+| Responsabile Git  | Boschi Filippo     |[pllossi](https://github.com/pllossi)|
+| Responsabile MVVM | Cesare Di Masi     |[Dread-X](https://github.com/Cesare-Di-Masi)|
+| Responsabile View | Gianluca Vernocchi |[Gianluca-Vernocchi](https://github.com/Gianluca-vernocchi)|
 
